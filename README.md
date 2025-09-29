@@ -218,33 +218,36 @@ This comprehensive data science project analyzes YouTube channel performance met
 
 ```
 YouTube-Channel-Analysis-Project/
-├── 📓 notebooks, visualizations/          # 주피터 노트북 및 시각화
-│   ├── Youtube_Channel_Anaylsis_Project.ipynb        # 메인 이중언어 분석 노트북
-│   └── Youtube_Channel_Anaylsis_Project_backup.ipynb # 백업 파일
-├── 📊 analysis/                          # 개별 분석 스크립트
-│   ├── data_preprocessing.py             # 공통 데이터 전처리 함수
-│   ├── 01_wordcloud_analysis.py          # 워드클라우드 생성 및 분석
-│   ├── 02_upload_timing_analysis.py      # 업로드 타이밍 최적화 분석
-│   ├── 03_upload_frequency_analysis.py   # 업로드 주기 분석
-│   ├── 04_correlation_analysis.py        # 통계적 상관관계 분석
-│   ├── 05_video_duration_analysis.py     # 비디오 길이 최적화 분석
-│   ├── 06_channel_age_analysis.py        # 채널 나이 vs 성과 분석
-│   ├── 07_expected_views_analysis.py     # 기대 vs 실제 성과 분석
-│   └── 08_subscriber_ratio_analysis.py   # 구독자 참여도 분석
-├── 📋 requirements.txt                   # Python 패키지 의존성
-├── 📄 README.md                          # 종합 프로젝트 문서 (이 파일)
-├── 📜 LICENSE                            # MIT 라이선스
-├── 🔧 .gitignore                         # Git 무시 파일 설정
-└── 📁 .git/                             # Git 버전 관리 폴더
+├── 📓 Notebooks_Visualizations/       # Jupyter notebooks & visualizations / 주피터노트북 및 시각화
+│   ├── YouTube_Channel_Analysis.ipynb
+│   └── YouTube_Channel_Analysis_Backup.ipynb
+│
+├── 📊 Analysis/                         # Individual analysis scripts / 개별 분석 스크립트
+│   ├── Data_Preprocessing.py          # Common data preprocessing functions / 공통데이터 전처리함수
+│   ├── 01_Wordcloud_Analysis.py       # Word cloud creation and analysis / 워드클라우드 생성 및 분석
+│   ├── 02_Upload_Timing_Analysis.py     # Upload timing optimization / 업로드 시간 최적화
+│   ├── 03_Upload_Frequency_Analysis.py  # Upload frequency optimization / 업로드 빈도 최적화
+│   ├── 04_Correlation_Analysis.py      # Correlation & significance tests / 상관관계 및 유의성 검정
+│   ├── 05_Video_Duration_Analysis.py    # Video length optimization / 동영상 길이 최적화
+│   ├── 06_Channel_Age_Analysis.py       # Channel age & growth analysis / 채널 연령 및 성장 분석
+│   ├── 07_Expected_Views_Analysis.py    # Expected vs. actual performance / 예상 vs 실제 성과 분석
+│   └── 08_Subscriber_Ratio_Analysis.py #Subscriber growth & ratio analysis / 구독자증가 및 비율분석
+│
+├── 📋 requirements.txt                  # Python package dependencies / 파이썬 패키지 의존성
+├── 📄 README.md                         # Comprehensive project documentation / 프로젝트 문서
+├── 📜 LICENSE                           # MIT license / MIT 라이선스
+├── 🔧 .gitignore                        # Git ignore rules / Git 무시 규칙
+└── 📁 .git/                             # Git version control folder / Git 버전 관리 폴더
+
 ```
 
 ### **현재 프로젝트 특징**
-- **이중언어 노트북**: 한국어와 영어가 모두 포함된 분석 노트북
-- **모듈화된 분석**: 각 분석 유형별로 분리된 Python 스크립트 (9개 파일)
-- **8가지 핵심 분석**: 워드클라우드부터 구독자 효율성까지 포괄적 분석
-- **한국어 처리**: 한국 유튜브 채널에 특화된 텍스트 분석
-- **통계적 검증**: 상관관계 및 유의성 검증을 포함한 과학적 분석 방법론
-- **완전한 이중언어 지원**: 모든 마크다운 섹션이 한국어와 영어로 제공
+- **이중언어 노트북**: 한국어와 영어가 모두 포함된 분석 노트북 / Bilingual Notebooks: Jupyter notebooks with both Korean & English explanations.
+- **모듈화된 분석**: 각 분석 유형별로 분리된 Python 스크립트 (9개 파일) / Modularized Analysis: Each type of analysis is separated into its own Python script (8 core modules + preprocessing).
+- **8가지 핵심 분석**: 워드클라우드부터 구독자 효율성까지 포괄적 분석 / Eight Core Analyses: From word cloud generation to subscriber efficiency.
+- **한국어 처리**: 한국 유튜브 채널에 특화된 텍스트 분석 / Korean Language Processing: Specialized text analysis for Korean YouTube channels.
+- **통계적 검증**: 상관관계 및 유의성 검증을 포함한 과학적 분석 방법론 / Statistical Verification: Incorporates scientific methodology, including correlation tests and significance checks.
+- **완전한 이중언어 지원**: 모든 마크다운 섹션이 한국어와 영어로 제공 /Full Bilingual Support: All documentation and Markdown sections are available in both English and Korean.
 
 ## 🛠 Technologies Used
 
