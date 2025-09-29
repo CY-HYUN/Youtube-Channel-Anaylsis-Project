@@ -14,36 +14,87 @@ This project analyzes YouTube channels across various categories including:
 
 ## 🔍 Main Analysis Features
 
-### 1. **Word Cloud Analysis**
-- Analyzes most frequently used words in video titles by category
-- Identifies trending keywords for each channel type
-- Compares word usage patterns across different content categories
+### 1. **Word Cloud Analysis** (`01_wordcloud_analysis.py`)
+- Generates visual word clouds for top 5 channels in each category
+- Analyzes most frequently used keywords in video titles
+- Identifies trending terms and content themes by category
+- **Visualizations**: Category-specific word clouds with Korean text processing
 
-### 2. **Upload Pattern Analysis**
-- **Day of Week Analysis**: Identifies optimal upload days for maximum views
-- **Time Analysis**: Determines best upload times for audience engagement
-- Calculates average view counts by upload schedule
+### 2. **Upload Timing Analysis** (`02_upload_timing_analysis.py`)
+- **Day of Week Optimization**: Identifies best upload days for maximum engagement
+- **Hour-by-Hour Analysis**: Determines optimal upload times throughout the day
+- **Heatmap Visualizations**: Shows upload patterns and performance correlations
+- **Category-Specific Insights**: Tailored timing recommendations per content type
 
-### 3. **Performance Metrics**
-- **View Count Analysis**: Tracks video performance over time
-- **Engagement Metrics**: Analyzes likes, comments, and subscriber growth
-- **Content Optimization**: Identifies factors that drive higher performance
+### 3. **Upload Frequency Analysis** (`03_upload_frequency_analysis.py`)
+- **Upload Interval Calculation**: Analyzes posting frequency patterns (daily, weekly, monthly)
+- **Frequency Performance Correlation**: Measures impact of upload consistency on views
+- **Optimal Schedule Recommendations**: Data-driven posting frequency suggestions
+- **Channel Comparison**: Benchmarks upload strategies across top performers
 
-### 4. **Category Comparison**
-- Cross-category performance benchmarking
-- Trend identification across different content types
-- Best practices extraction from top-performing channels
+### 4. **Correlation Analysis** (`04_correlation_analysis.py`)
+- **Statistical Correlation**: Pearson and Spearman correlation analysis
+- **Views vs Engagement**: Relationship between views, likes, and comments
+- **Significance Testing**: P-value calculations for statistical validity
+- **Scatter Plot Visualizations**: Visual correlation matrices and trend lines
+
+### 5. **Video Duration Analysis** (`05_video_duration_analysis.py`)
+- **Length Optimization**: Analyzes optimal video durations for each category
+- **Duration Categorization**: Groups videos by length ranges (short, medium, long)
+- **Performance Impact**: Measures how duration affects views and engagement
+- **Category-Specific Recommendations**: Tailored duration strategies per content type
+
+### 6. **Channel Age Analysis** (`06_channel_age_analysis.py`)
+- **Creation Date Impact**: Analyzes how channel age affects subscriber growth
+- **Age vs Performance**: Correlation between channel maturity and view counts
+- **Growth Pattern Analysis**: Identifies optimal growth trajectories
+- **Benchmarking by Age**: Compares performance across different channel age groups
+
+### 7. **Expected Views Analysis** (`07_expected_views_analysis.py`)
+- **Performance Prediction**: Calculates expected vs actual view performance
+- **Success Rate Metrics**: Measures how often channels meet performance expectations
+- **Performance Grading**: Categorizes channels by success rate (A/B/C/D/F grades)
+- **Trend Analysis**: Identifies channels consistently exceeding expectations
+
+### 8. **Subscriber Ratio Analysis** (`08_subscriber_ratio_analysis.py`)
+- **Engagement Efficiency**: Views per subscriber ratio analysis
+- **Subscriber Value**: Measures subscriber quality vs quantity
+- **Performance Grades**: Rates channels on subscriber engagement effectiveness
+- **ROI Analysis**: Subscriber growth vs content performance correlation
 
 ## 📁 Project Structure
 
 ```
 YouTube-Channel-Analysis/
 ├── 📊 data/                          # CSV data files for each channel category
-├── 📓 notebooks/                     # Jupyter notebook files
+│   ├── Gaming.csv
+│   ├── Food.csv
+│   ├── Kids.csv
+│   ├── KPOP.csv
+│   ├── Science.csv
+│   └── Variety.csv
+├── 📓 notebooks/                     # Original Jupyter notebook
+│   └── Youtube_Channel_Analysis_Project.ipynb
+├── 📈 analysis/                     # Individual analysis scripts
+│   ├── data_preprocessing.py        # Common data processing functions
+│   ├── 01_wordcloud_analysis.py     # Word cloud generation
+│   ├── 02_upload_timing_analysis.py # Upload timing optimization
+│   ├── 03_upload_frequency_analysis.py # Upload frequency analysis
+│   ├── 04_correlation_analysis.py   # Statistical correlation analysis
+│   ├── 05_video_duration_analysis.py # Video duration optimization
+│   ├── 06_channel_age_analysis.py   # Channel age vs performance
+│   ├── 07_expected_views_analysis.py # Expected vs actual performance
+│   └── 08_subscriber_ratio_analysis.py # Subscriber engagement analysis
 ├── 🎨 visualizations/               # Generated charts and graphs
-├── 📈 analysis/                     # Analysis scripts and results
+│   ├── 01_wordcloud_[category].png
+│   ├── 02_upload_timing_[category].png
+│   ├── 03_upload_frequency_[category].png
+│   ├── 04_correlation_[category].png
+│   ├── 05_video_duration_[category].png
+│   ├── 06_channel_age_[category].png
+│   ├── 07_expected_views_[category].png
+│   └── 08_subscriber_ratio_[category].png
 ├── 📋 requirements.txt              # Python dependencies
-├── 🎬 Youtube_Channel_Analysis_Project.ipynb  # Main analysis notebook
 └── 📄 README.md
 ```
 
@@ -75,27 +126,68 @@ pip install pandas matplotlib seaborn wordcloud numpy scipy scikit-learn jupyter
    pip install -r requirements.txt
    ```
 
-3. **Run the analysis**
+3. **Run individual analyses**
    ```bash
-   jupyter notebook Youtube_Channel_Analysis_Project.ipynb
+   # Run all analyses
+   cd analysis
+   python 01_wordcloud_analysis.py
+   python 02_upload_timing_analysis.py
+   python 03_upload_frequency_analysis.py
+   python 04_correlation_analysis.py
+   python 05_video_duration_analysis.py
+   python 06_channel_age_analysis.py
+   python 07_expected_views_analysis.py
+   python 08_subscriber_ratio_analysis.py
    ```
 
-## 📊 Key Analysis Results
+   **Or run the original Jupyter notebook**
+   ```bash
+   jupyter notebook notebooks/Youtube_Channel_Analysis_Project.ipynb
+   ```
 
-### Upload Time Optimization
+## 📊 Key Analysis Insights
+
+### 🕒 Upload Timing Optimization
 - **Best Days**: Analysis reveals optimal upload days for each category
 - **Peak Hours**: Identifies time slots with highest engagement rates
+- **Heatmap Analysis**: Visual patterns showing day/hour performance correlations
 - **Category Variations**: Different content types show distinct optimal schedules
 
-### Content Performance Insights
-- **Title Keywords**: Most effective words for video titles by category
-- **Duration Patterns**: Optimal video lengths for different content types
-- **Engagement Drivers**: Factors that increase likes, comments, and shares
+### 📅 Upload Frequency Impact
+- **Consistency Metrics**: How regular posting affects view performance
+- **Frequency Categories**: Daily vs weekly vs monthly posting analysis
+- **Performance Correlation**: Statistical relationship between frequency and success
+- **Optimal Intervals**: Data-driven recommendations for posting schedules
 
-### Trend Analysis
-- **Seasonal Patterns**: Content performance variations throughout the year
-- **Category Growth**: Emerging trends in different YouTube categories
-- **Audience Preferences**: Viewer behavior patterns across content types
+### 📊 Statistical Correlations
+- **Views vs Engagement**: Strong correlation analysis between metrics
+- **Significance Testing**: P-value validation for statistical reliability
+- **Performance Predictors**: Key factors that drive channel success
+- **Category Differences**: Varying correlation patterns across content types
+
+### ⏱️ Video Duration Strategy
+- **Length Optimization**: Optimal video durations for maximum engagement
+- **Category Patterns**: Different optimal lengths for different content types
+- **Attention Span Analysis**: How duration affects viewer retention
+- **Performance Impact**: Statistical significance of duration on success
+
+### 📈 Channel Growth Analysis
+- **Age vs Performance**: How channel maturity affects subscriber growth
+- **Growth Trajectories**: Optimal development patterns for new channels
+- **Benchmark Comparisons**: Performance standards by channel age groups
+- **Success Predictors**: Early indicators of long-term channel success
+
+### 🎯 Performance Expectations
+- **Success Rate Metrics**: How often channels meet performance targets
+- **Grade Classification**: A-F grading system for channel performance
+- **Trend Identification**: Channels consistently exceeding expectations
+- **Predictive Modeling**: Expected vs actual performance analysis
+
+### 👥 Subscriber Efficiency
+- **Engagement Quality**: Views per subscriber ratio analysis
+- **Subscriber Value**: Quality vs quantity subscriber assessment
+- **ROI Analysis**: Return on investment for subscriber acquisition
+- **Efficiency Grades**: Rating system for subscriber engagement effectiveness
 
 ## 📈 Data Sources
 
