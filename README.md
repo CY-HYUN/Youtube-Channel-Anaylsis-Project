@@ -46,7 +46,6 @@ This comprehensive data science project analyzes YouTube channel performance met
 - Keyword strategy recommendations for content creators
 - Cross-category comparison of title optimization techniques
 
-![Word Cloud Analysis](visualizations/01_wordcloud_analysis.png)
 
 ### 2. **Upload Timing Analysis - 업로드 타이밍 분석** (`02_upload_timing_analysis.py`)
 **각 분야 및 채널별 가장 많이 나오는 조회수의 요일 및 시간대 분석**
@@ -70,7 +69,6 @@ This comprehensive data science project analyzes YouTube channel performance met
 - Food content shows strong performance during meal times
 - K-POP content has global audience considerations affecting optimal timing
 
-![Upload Timing Analysis](visualizations/02_upload_timing_analysis.png)
 
 ### 3. **Upload Frequency Analysis - 업로드 주기 분석** (`03_upload_frequency_analysis.py`)
 **가장 최적의 업로드 주기가 몇일인지 파악**
@@ -94,7 +92,6 @@ This comprehensive data science project analyzes YouTube channel performance met
 - Smaller channels benefit from higher frequency to build audience, while established channels optimize for quality
 - Weekend uploads show different performance patterns than weekday uploads
 
-![Upload Frequency Analysis](visualizations/03_upload_frequency_analysis.png)
 
 ### 4. **Correlation Analysis - 상관관계 분석** (`04_correlation_analysis.py`)
 **조회수와 좋아요수 & 조회수와 댓글수는 양의 상관관계**
@@ -124,7 +121,6 @@ This comprehensive data science project analyzes YouTube channel performance met
 - Subscriber count moderates the relationship between views and engagement
 - Comment-to-like ratios vary significantly by content type
 
-![Correlation Analysis](visualizations/04_correlation_analysis.png)
 
 ### 5. **Video Duration Analysis - 재생시간 분석** (`05_video_duration_analysis.py`)
 **각 분야별 재생시간이 길수록 조회수가 낮을까? (영상길이가 길수록 사람들은 피로감을 느낀다)**
@@ -148,7 +144,6 @@ This comprehensive data science project analyzes YouTube channel performance met
 - Educational content: Longer videos (10-20 min) often outperform shorter ones
 - Viewer fatigue confirmed: Performance generally decreases after 15-minute threshold
 
-![Video Duration Analysis](visualizations/05_video_duration_analysis.png)
 
 ### 6. **Channel Age Analysis - 채널 나이 분석** (`06_channel_age_analysis.py`)
 **채널 개설일이 오래되었다고 총 구독자수 및 총 조회수가 높은 것이 아니다**
@@ -172,7 +167,6 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Content Freshness**: Newer channels benefit from current trends and algorithm preferences
 - **Optimal Growth Window**: Channels show strongest growth in years 2-4, then plateau or decline
 
-![Channel Age Analysis](visualizations/06_channel_age_analysis.png)
 
 ### 7. **Expected Views Analysis - 기대조회수 분석** (`07_expected_views_analysis.py`)
 **각 채널별 전체 동영상의 기대조회수 기준으로 최근 200개 기대조회수 파악 및 채널별 미래 동향 제시**
@@ -196,7 +190,6 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Future Viability Assessment**: Predictive modeling for channel longevity and growth potential
 - **Intervention Recommendations**: Data-driven suggestions for performance improvement
 
-![Expected Views Analysis](visualizations/07_expected_views_analysis.png)
 
 ### 8. **Subscriber Ratio Analysis - 구독자 비율 분석** (`08_subscriber_ratio_analysis.py`)
 **구독자수 대비 조회수 비교 및 각 분야 채널별 유튜브 현동향과 미래 발전 방향 제시**
@@ -220,60 +213,38 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Market Position Analysis**: Competitive positioning within category based on efficiency metrics
 - **Monetization Potential**: Correlation analysis between subscriber efficiency and revenue potential
 
-![Subscriber Ratio Analysis](visualizations/08_subscriber_ratio_analysis.png)
 
 ## 📁 Project Structure
 
 ```
 YouTube-Channel-Analysis-Project/
-├── 📓 notebooks, visualizations/           # Jupyter analysis notebooks
-│   └── Youtube_Channel_Anaylsis_Project.ipynb # Main bilingual analysis notebook
-├── 📊 data/                               # Raw and processed data files
-│   ├── raw_data/                         # Original CSV files by category
-│   │   ├── gaming_channels.csv           # 게임 카테고리 데이터
-│   │   ├── food_channels.csv             # 먹방/요리 카테고리 데이터
-│   │   ├── kpop_channels.csv             # 케이팝 카테고리 데이터
-│   │   ├── fashion_channels.csv          # 패션 카테고리 데이터
-│   │   └── travel_channels.csv           # 여행 카테고리 데이터
-│   └── processed_data/                   # Cleaned and preprocessed datasets
-│       ├── combined_analysis_data.csv    # Merged and cleaned dataset
-│       └── statistical_summaries.csv     # Category-wise statistical summaries
-├── 🎨 visualizations/                    # Generated analysis visualizations
-│   ├── wordclouds/                      # Word cloud analysis results
-│   │   ├── category_wordclouds.png       # Combined category word clouds
-│   │   └── individual_channel_wordclouds/ # Individual channel word clouds
-│   ├── timing_analysis/                  # Upload timing analysis charts
-│   │   ├── heatmaps_by_category.png      # Day-hour heatmap visualizations
-│   │   └── optimal_timing_charts.png     # Optimal timing recommendations
-│   ├── correlation_analysis/             # Statistical correlation visualizations
-│   │   ├── correlation_matrices.png      # Views-likes-comments correlations
-│   │   └── scatter_plots.png             # Relationship scatter plots
-│   ├── duration_analysis/                # Video duration analysis charts
-│   │   ├── duration_performance.png      # Duration vs performance analysis
-│   │   └── category_duration_patterns.png # Category-specific duration patterns
-│   ├── channel_age_analysis/             # Channel maturity analysis
-│   │   ├── age_performance_correlation.png # Age vs performance correlations
-│   │   └── growth_trajectory_analysis.png # Channel growth pattern analysis
-│   └── performance_analysis/             # Expected views and subscriber efficiency
-│       ├── expected_vs_actual.png        # Performance prediction analysis
-│       └── subscriber_efficiency.png     # Engagement efficiency metrics
-├── 🔧 utils/                            # Utility functions and helpers
-│   ├── korean_text_processing.py        # Korean language processing utilities
-│   ├── data_preprocessing.py            # Data cleaning and standardization
-│   ├── visualization_helpers.py         # Custom chart generation functions
-│   └── statistical_analysis.py          # Statistical testing and correlation functions
-├── 📋 requirements.txt                  # Python package dependencies
-├── 📄 README.md                         # Comprehensive project documentation (this file)
-├── 📜 LICENSE                           # MIT License
-└── 🇰🇷 README_한국어.md                   # Korean language documentation
+├── 📓 notebooks, visualizations/          # 주피터 노트북 및 시각화
+│   ├── Youtube_Channel_Anaylsis_Project.ipynb        # 메인 이중언어 분석 노트북
+│   └── Youtube_Channel_Anaylsis_Project_backup.ipynb # 백업 파일
+├── 📊 analysis/                          # 개별 분석 스크립트
+│   ├── data_preprocessing.py             # 공통 데이터 전처리 함수
+│   ├── 01_wordcloud_analysis.py          # 워드클라우드 생성 및 분석
+│   ├── 02_upload_timing_analysis.py      # 업로드 타이밍 최적화 분석
+│   ├── 03_upload_frequency_analysis.py   # 업로드 주기 분석
+│   ├── 04_correlation_analysis.py        # 통계적 상관관계 분석
+│   ├── 05_video_duration_analysis.py     # 비디오 길이 최적화 분석
+│   ├── 06_channel_age_analysis.py        # 채널 나이 vs 성과 분석
+│   ├── 07_expected_views_analysis.py     # 기대 vs 실제 성과 분석
+│   └── 08_subscriber_ratio_analysis.py   # 구독자 참여도 분석
+├── 📋 requirements.txt                   # Python 패키지 의존성
+├── 📄 README.md                          # 종합 프로젝트 문서 (이 파일)
+├── 📜 LICENSE                            # MIT 라이선스
+├── 🔧 .gitignore                         # Git 무시 파일 설정
+└── 📁 .git/                             # Git 버전 관리 폴더
 ```
 
-### **File Organization Principles**
-- **Bilingual Structure**: All documentation available in Korean and English
-- **Category-Based Data**: Separate data files for each content category analysis
-- **Modular Analysis**: Individual utility modules for reusable analysis functions
-- **Comprehensive Visualization**: Organized chart outputs for each analysis dimension
-- **Cultural Context**: Korean language processing and cultural insights integration
+### **현재 프로젝트 특징**
+- **이중언어 노트북**: 한국어와 영어가 모두 포함된 분석 노트북
+- **모듈화된 분석**: 각 분석 유형별로 분리된 Python 스크립트 (9개 파일)
+- **8가지 핵심 분석**: 워드클라우드부터 구독자 효율성까지 포괄적 분석
+- **한국어 처리**: 한국 유튜브 채널에 특화된 텍스트 분석
+- **통계적 검증**: 상관관계 및 유의성 검증을 포함한 과학적 분석 방법론
+- **완전한 이중언어 지원**: 모든 마크다운 섹션이 한국어와 영어로 제공
 
 ## 🛠 Technologies Used
 
