@@ -1,0 +1,104 @@
+# Production dependencies for YouTube Channel Analysis Platform
+# Core application dependencies
+pandas==2.0.3
+matplotlib==3.7.2
+seaborn==0.12.2
+wordcloud==1.9.2
+numpy==1.24.3
+scipy==1.11.1
+scikit-learn==1.3.0
+
+# Web framework and API
+fastapi==0.103.1
+uvicorn[standard]==0.23.2
+gunicorn==21.2.0
+httpx==0.24.1
+requests==2.31.0
+
+# Data storage and caching
+sqlalchemy==2.0.21
+alembic==1.12.0
+redis==4.6.0
+psycopg2-binary==2.9.7
+
+# Background tasks and queuing
+celery[redis]==5.3.1
+flower==2.0.1
+
+# Configuration and environment
+pydantic==2.3.0
+pydantic-settings==2.0.3
+python-dotenv==1.0.0
+
+# Monitoring and logging
+structlog==23.1.0
+prometheus-client==0.17.1
+sentry-sdk[fastapi]==1.32.0
+
+# Security and validation
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.6
+
+# Testing and development tools (production-safe versions)
+pytest==7.4.2
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+pytest-mock==3.11.1
+
+# Code quality and formatting
+black==23.7.0
+isort==5.12.0
+flake8==6.0.0
+mypy==1.5.1
+
+# Performance and optimization
+aiofiles==23.2.1
+aiocache==0.12.2
+orjson==3.9.5
+
+# Utilities
+click==8.1.7
+rich==13.5.2
+typer==0.9.0
+tqdm==4.66.1
+
+# Data validation and serialization
+marshmallow==3.20.1
+cerberus==1.3.5
+
+# Time handling
+python-dateutil==2.8.2
+pytz==2023.3
+
+# HTTP client with retry and rate limiting
+tenacity==8.2.3
+backoff==2.2.1
+
+# File handling and compression
+openpyxl==3.1.2
+xlsxwriter==3.1.2
+zipfile36==0.1.3
+
+# Image processing for thumbnails and charts
+Pillow==10.0.0
+
+# Excel and CSV enhanced support
+tabulate==0.9.0
+xlrd==2.0.1
+
+# Memory profiling and optimization
+memory-profiler==0.61.0
+psutil==5.9.5
+
+# Async database drivers
+asyncpg==0.28.0
+aiosqlite==0.19.0
+
+# JWT and authentication
+PyJWT==2.8.0
+cryptography==41.0.4
+
+# Environment and system info
+python-platform==0.2.0
+distro==1.8.0
