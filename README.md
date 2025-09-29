@@ -242,7 +242,7 @@ YouTube-Channel-Analysis-Project/
 ```
 
 ### **현재 프로젝트 특징**
-- ****Bilingual Notebooks**: Jupyter notebooks with both Korean & English explanations. / 이중언어 노트북**: 한국어와 영어가 모두 포함된 분석 노트북
+- **Bilingual Notebooks**: Jupyter notebooks with both Korean & English explanations. / **이중언어 노트북**: 한국어와 영어가 모두 포함된 분석 노트북
 - **Modularized Analysis**: Each type of analysis is separated into its own Python script (8 core modules + preprocessing). / **모듈화된 분석**: 각 분석 유형별로 분리된 Python 스크립트 (9개 파일)
 - **Eight Core Analyses**: From word cloud generation to subscriber efficiency. / **8가지 핵심 분석**: 워드클라우드부터 구독자 효율성까지 포괄적 분석 
 -  **Korean Language Processing**: Specialized text analysis for Korean YouTube channels. / **한국어 처리**: 한국 유튜브 채널에 특화된 텍스트 분석
