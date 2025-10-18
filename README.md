@@ -26,7 +26,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 ## 🔍 Main Analysis Features
 
 ### 1. **Word Cloud Analysis - 워드클라우드 분석** (`01_wordcloud_analysis.py`)
-**분야별 상위 5명의 유튜버들이 제목에 자주 사용하는 단어 분석**
+**Analyzing frequently used words in video titles by top 5 YouTubers in each category**
 
 **Technical Implementation:**
 - **Korean Language Processing**: Advanced morphological analysis using Korean-specific NLP libraries
@@ -47,12 +47,14 @@ This comprehensive data science project analyzes YouTube channel performance met
 - Cross-category comparison of title optimization techniques
 
 **📊 Visualization:**
-![Word Cloud Analysis by Category](https://via.placeholder.com/800x400.png?text=Word+Cloud+Analysis+by+Category)
-*Word cloud visualization showing the most frequently used keywords in video titles for top 5 channels in each category*
+![Word Cloud Analysis by Category](visualizations/analysis_1.png)
+![Word Cloud Example 1](visualizations/analysis_2.png)
+![Word Cloud Example 2](visualizations/analysis_3.png)
+*Word cloud visualizations showing the most frequently used keywords in video titles for top 5 channels in each category*
 
 
 ### 2. **Upload Timing Analysis - 업로드 타이밍 분석** (`02_upload_timing_analysis.py`)
-**각 분야 및 채널별 가장 많이 나오는 조회수의 요일 및 시간대 분석**
+**Analyzing optimal upload days and time slots with highest average views for each category and channel**
 
 **Technical Implementation:**
 - **Temporal Data Processing**: DateTime parsing and timezone handling for accurate time-based analysis
@@ -74,12 +76,14 @@ This comprehensive data science project analyzes YouTube channel performance met
 - K-POP content has global audience considerations affecting optimal timing
 
 **📊 Visualization:**
-![Upload Timing Heatmap Analysis](https://via.placeholder.com/800x400.png?text=Upload+Timing+Heatmap+Analysis)
+![Upload Timing Heatmap 1](visualizations/analysis_19.png)
+![Upload Timing Heatmap 2](visualizations/analysis_20.png)
+![Upload Timing Heatmap 3](visualizations/analysis_21.png)
 *Heatmap showing optimal upload days and hours for maximum views across different content categories*
 
 
 ### 3. **Upload Frequency Analysis - 업로드 주기 분석** (`03_upload_frequency_analysis.py`)
-**가장 최적의 업로드 주기가 몇일인지 파악**
+**Determining the optimal upload frequency interval (in days) for maximum performance**
 
 **Technical Implementation:**
 - **Interval Calculation Algorithm**: Advanced date difference calculations between consecutive uploads
@@ -101,12 +105,14 @@ This comprehensive data science project analyzes YouTube channel performance met
 - Weekend uploads show different performance patterns than weekday uploads
 
 **📊 Visualization:**
-![Upload Frequency vs Performance Analysis](https://via.placeholder.com/800x400.png?text=Upload+Frequency+vs+Performance+Analysis)
-*Bar chart comparing optimal upload frequency patterns and their correlation with average views per video across categories*
+![Upload Frequency Analysis 1](visualizations/analysis_22.png)
+![Upload Frequency Analysis 2](visualizations/analysis_23.png)
+![Upload Frequency Analysis 3](visualizations/analysis_24.png)
+*Bar charts comparing optimal upload frequency patterns and their correlation with average views per video across categories*
 
 
 ### 4. **Correlation Analysis - 상관관계 분석** (`04_correlation_analysis.py`)
-**조회수와 좋아요수 & 조회수와 댓글수는 양의 상관관계**
+**Positive correlation between views and likes & views and comments**
 
 **Statistical Methodology:**
 - **Pearson Correlation**: Linear relationship analysis between continuous variables
@@ -134,12 +140,12 @@ This comprehensive data science project analyzes YouTube channel performance met
 - Comment-to-like ratios vary significantly by content type
 
 **📊 Visualization:**
-![Correlation Matrix Heatmap](https://via.placeholder.com/800x400.png?text=Correlation+Matrix+Heatmap)
-*Correlation heatmap displaying statistical relationships between views, likes, comments, and subscriber metrics*
+![Correlation Analysis](visualizations/analysis_25.png)
+*Correlation heatmap and scatter plots displaying statistical relationships between views, likes, comments, and subscriber metrics*
 
 
 ### 5. **Video Duration Analysis - 재생시간 분석** (`05_video_duration_analysis.py`)
-**각 분야별 재생시간이 길수록 조회수가 낮을까? (영상길이가 길수록 사람들은 피로감을 느낀다)**
+**Does longer video duration lead to lower views? Investigating viewer fatigue with increasing video length**
 
 **Technical Implementation:**
 - **Duration Parsing**: Conversion of duration strings to numerical minutes for statistical analysis
@@ -161,12 +167,14 @@ This comprehensive data science project analyzes YouTube channel performance met
 - Viewer fatigue confirmed: Performance generally decreases after 15-minute threshold
 
 **📊 Visualization:**
-![Video Duration vs Views Analysis](https://via.placeholder.com/800x400.png?text=Video+Duration+vs+Views+Analysis)
-*Scatter plot and regression analysis showing the relationship between video duration and average views by category*
+![Video Duration Analysis 1](visualizations/analysis_26.png)
+![Video Duration Analysis 2](visualizations/analysis_27.png)
+![Video Duration Analysis 3](visualizations/analysis_28.png)
+*Scatter plots and box plots showing the relationship between video duration and average views, comparing top 10 vs bottom 10 performing videos by category*
 
 
 ### 6. **Channel Age Analysis - 채널 나이 분석** (`06_channel_age_analysis.py`)
-**채널 개설일이 오래되었다고 총 구독자수 및 총 조회수가 높은 것이 아니다**
+**Older channel creation date does not guarantee higher total subscribers and views**
 
 **Technical Implementation:**
 - **Age Calculation**: Precise datetime calculations from channel creation date to analysis date
@@ -188,12 +196,12 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Optimal Growth Window**: Channels show strongest growth in years 2-4, then plateau or decline
 
 **📊 Visualization:**
-![Channel Age vs Performance Metrics](https://via.placeholder.com/800x400.png?text=Channel+Age+vs+Performance+Metrics)
-*Scatter plot analysis comparing channel age with total subscribers and views, showing no strong linear correlation*
+![Channel Age Analysis](visualizations/analysis_29.png)
+*Scatter plot analysis comparing channel creation date with total subscribers and views, demonstrating no strong linear correlation between channel age and performance*
 
 
 ### 7. **Expected Views Analysis - 기대조회수 분석** (`07_expected_views_analysis.py`)
-**각 채널별 전체 동영상의 기대조회수 기준으로 최근 200개 기대조회수 파악 및 채널별 미래 동향 제시**
+**Analyzing recent 200 videos' performance against channel expected view baseline and forecasting future channel trends**
 
 **Predictive Modeling Framework:**
 - **Baseline Calculation**: Total views ÷ Total videos = Channel expected view baseline
@@ -215,12 +223,12 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Intervention Recommendations**: Data-driven suggestions for performance improvement
 
 **📊 Visualization:**
-![Expected vs Actual Views Performance](https://via.placeholder.com/800x400.png?text=Expected+vs+Actual+Views+Performance)
-*Time series chart comparing expected views baseline with actual performance of recent 200 videos, with trend forecasting*
+![Expected Views Analysis](visualizations/analysis_30.png)
+*Bar charts and performance grading visualization comparing expected views baseline with actual performance of recent 200 videos, with trend analysis*
 
 
 ### 8. **Subscriber Ratio Analysis - 구독자 비율 분석** (`08_subscriber_ratio_analysis.py`)
-**구독자수 대비 조회수 비교 및 각 분야 채널별 유튜브 현동향과 미래 발전 방향 제시**
+**Comparing views-to-subscriber ratios and presenting current trends and future development directions for channels by category**
 
 **Engagement Efficiency Metrics:**
 - **Views-per-Subscriber Ratio**: Primary metric for audience engagement quality assessment
@@ -242,8 +250,9 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Monetization Potential**: Correlation analysis between subscriber efficiency and revenue potential
 
 **📊 Visualization:**
-![Subscriber Efficiency Analysis Dashboard](https://via.placeholder.com/800x400.png?text=Subscriber+Efficiency+Analysis+Dashboard)
-*Multi-panel dashboard showing views-per-subscriber ratios, engagement quality scores, and efficiency classification by category*
+![Subscriber Ratio Analysis 1](visualizations/analysis_31.png)
+![Subscriber Ratio Analysis 2](visualizations/analysis_32.png)
+*Bar charts and comparative analysis showing views-to-subscriber ratios, engagement quality scores, and efficiency classification by category*
 
 
 ## 📁 Project Structure
@@ -641,9 +650,3 @@ This research project provides the most comprehensive analysis of Korean YouTube
 - Korean language processing in data science
 - Cross-cultural content performance analysis
 - Statistical modeling for social media platforms
-
----
-
-**Made with ❤️ using Python, advanced statistical methods, and deep understanding of Korean digital culture**
-
-**한국 유튜브 생태계 분석을 위한 포괄적인 데이터 사이언스 프로젝트**
