@@ -41,7 +41,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Common video title keywords like "VLOG", "Review", "Tutorial"
 - **Actual:** Category-specific keywords dominate: Fashion shows brand names, Mukbang shows food types, Travel shows location names
 
-![Analysis 1](visualizations/01_wordcloud/main.png)
+![Analysis 1](visualizations/01_wordcloud/워드클라우드.png)
 
 ### 2. **Upload Timing Analysis - 업로드 타이밍 분석** (`02_upload_timing_analysis.py`)
 **Analyzing optimal upload days and hours by category and channel**
@@ -55,7 +55,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Higher views on weekends and evening hours (6-9 PM)
 - **Actual:** Peak performance varies by category: Fashion peaks on weekdays, Mukbang peaks late night, Travel peaks on weekends
 
-![Analysis 2](visualizations/02_timing_analysis/main.png)
+![Analysis 2](visualizations/02_timing_analysis/업로드_타이밍.png)
 
 ### 3. **Upload Frequency Analysis - 업로드 주기 분석** (`03_upload_frequency_analysis.py`)
 **Analyzing average views and likes based on upload frequency intervals**
@@ -69,7 +69,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** More frequent uploads (1-3 days) lead to higher engagement
 - **Actual:** Moderate frequency (4-7 days) shows best performance after outlier removal, suggesting quality over quantity
 
-![Analysis 3](visualizations/03_upload_frequency/main.png)
+![Analysis 3](visualizations/03_upload_frequency/업로드_주기.png)
 
 ### 4. **Correlation Analysis - 상관관계 분석** (`04_correlation_analysis.py`)
 **Analyzing correlation between views, likes, and comments by category and channel**
@@ -83,7 +83,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Strong positive correlation between views and engagement metrics
 - **Actual:** Very strong correlation (>0.9) for views-likes, moderate for views-comments, indicating likes are more consistent engagement metric
 
-![Analysis 4](visualizations/04_correlation/main.png)
+![Analysis 4](visualizations/04_correlation/상관관계.png)
 
 ### 5. **Video Duration Analysis - 영상 길이 분석** (`05_video_duration_analysis.py`)
 **Comparing top 10 and bottom 10 video durations relative to view counts**
@@ -97,7 +97,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Optimal duration around 10-15 minutes
 - **Actual:** Top performers vary widely (5-20 min), bottom performers often too short (<3 min) or too long (>25 min), showing content quality matters more than duration
 
-![Analysis 5](visualizations/05_duration/main.png)
+![Analysis 5](visualizations/05_duration/영상_길이.png)
 
 ### 6. **Channel Age Analysis - 채널 연령 분석** (`06_channel_age_analysis.py`)
 **Comparing total subscribers and views based on channel creation date**
@@ -111,7 +111,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Linear growth with channel age
 - **Actual:** Exponential growth pattern - established channels (3+ years) show disproportionately higher metrics, suggesting compound growth effects
 
-![Analysis 6](visualizations/06_channel_age/main.png)
+![Analysis 6](visualizations/06_channel_age/채널_연령.png)
 
 ### 7. **Expected Views Analysis - 기대 조회수 분석** (`07_expected_views_analysis.py`)
 **Analyzing whether videos meet expected view counts by category and channel**
@@ -125,7 +125,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Most videos meet or exceed expected views
 - **Actual:** Only 40-60% of videos meet expectations, with high variance across categories and channels, suggesting unpredictable performance
 
-![Analysis 7](visualizations/07_expected_views/main.png)
+![Analysis 7](visualizations/07_expected_views/기대_조회수.png)
 
 ### 8. **Subscriber Ratio Analysis - 구독자 비율 분석** (`08_subscriber_ratio_analysis.py`)
 **Comparing and analyzing total views to total subscriber ratios**
@@ -139,7 +139,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Similar ratios across categories
 - **Actual:** Mukbang shows highest efficiency (views/subscriber), Travel shows highest absolute metrics, indicating different content consumption patterns
 
-![Analysis 8](visualizations/08_subscriber_ratio/main.png)
+![Analysis 8](visualizations/08_subscriber_ratio/구독자_비율.png)
 
 
 ## 📁 Project Structure
