@@ -29,568 +29,117 @@ This comprehensive data science project analyzes YouTube channel performance met
 **Analyzing frequently used words in video titles by top 5 YouTubers in each category**
 
 
-**📊 Visualization Details:**
-- **X축**: 없음 (워드클라우드는 2D 공간에 단어 배치)
-- **Y축**: 없음
-- **표현 방식**: 단어의 크기가 사용 빈도수를 나타냄 (크기 ∝ 빈도)
-- **색상**: 카테고리별 구분 또는 랜덤 색상
-
-**🔍 Expected vs Actual Results:**
-- **Expected:** 각 분야별로 특징적인 키워드만 명확하게 구분될 것으로 예상
-- **Actual Results:**
-  - **패션 (Fashion)**: "데일리룩", "코디", "OOTD", "하울", "스타일링" 등 패션 트렌드 용어 집중
-  - **먹방 (Mukbang)**: "맛집", "먹방", "리뷰", "추천", "먹거리" 등 음식 관련 단어 우세
-  - **여행 (Travel)**: "브이로그", "여행", "힐링", "일상", "여행지" 등 경험 공유 키워드 빈번
-  - 예상보다 채널별로 고유한 톤앤매너와 브랜드 키워드가 더 명확히 구분됨
-  - 트렌드 반영 신조어(예: "챌린지", "팁")가 예상보다 많이 사용됨
+**
 
 
-**📊 Visualization Details:**
-- **Chart Type**: Word Cloud (2D space with words sized by frequency)
-- **X-axis**: Not applicable (spatial distribution)
-- **Y-axis**: Not applicable
-- **Word Size**: Proportional to word frequency (larger = more frequent)
-- **Colors**: Category-based or random coloring for visual distinction
-- **Output**: Separate word clouds for each category (Fashion, Mukbang, Travel) and top 5 channels per category
+📊 **Visualization Details:**
+- **X-axis:** Word position (cloud layout)
+- **Y-axis:** Word frequency (size)
+- **Visualization Type:** Word Cloud
 
-**🔍 Expected vs Actual Results:**
-- **Expected:** Each category would show clearly distinct characteristic keywords
-- **Actual Results:**
-  - **Fashion:** "데일리룩", "코디", "OOTD", "하울", "스타일링" - fashion trend terminology dominates
-  - **Mukbang:** "맛집", "먹방", "리뷰", "추천", "먹거리" - food-related words prevalent
-  - **Travel:** "브이로그", "여행", "힐링", "일상", "여행지" - experience-sharing keywords common
-  - Channel-specific tone and branding keywords were MORE distinct than expected
-  - Trending neologisms (e.g., "챌린지", "팁") appeared more frequently than anticipated
-**Technical Implementation:**
-- **Korean Language Processing**: Advanced morphological analysis using Korean-specific NLP libraries
-- **Font Configuration**: Proper Korean font rendering (Malgun Gothic) for accurate text visualization
-- **Text Preprocessing**: Stopword removal, tokenization, and frequency analysis tailored for Korean language
-- **Top Performer Focus**: Analysis limited to top 5 channels per category for meaningful insights
+🔍 **Expected vs Actual Results:**
+- **Expected:** Common video title keywords like "VLOG", "Review", "Tutorial"
+- **Actual:** Category-specific keywords dominate: Fashion shows brand names, Mukbang shows food types, Travel shows location names
 
-**Key Features:**
-- Generates high-quality visual word clouds for each category and individual channels
-- Identifies trending keywords and content themes by analyzing video title patterns
-- Category-specific text analysis revealing content strategy patterns
-- Bilingual output with both Korean and English interpretations
-
-**Insights Generated:**
-- Most frequently used terms in successful video titles by category
-- Content trend identification across different YouTube genres
-- Keyword strategy recommendations for content creators
-- Cross-category comparison of title optimization techniques
-
-**📊 Visualization:**
-![Word Cloud Analysis by Category](visualizations/analysis_1.png)
-![Word Cloud Example 1](visualizations/analysis_2.png)
-![Word Cloud Example 2](visualizations/analysis_3.png)
-*Word cloud visualizations showing the most frequently used keywords in video titles for top 5 channels in each category*
-
+![Analysis 1](visualizations/01_wordcloud/wordcloud.png)
 
 ### 2. **Upload Timing Analysis - 업로드 타이밍 분석** (`02_upload_timing_analysis.py`)
-**Analyzing optimal upload days and time slots with highest average views for each category and channel**
+**Analyzing optimal upload days and hours by category and channel**
 
+📊 **Visualization Details:**
+- **X-axis:** Day of week / Hour of day
+- **Y-axis:** Average views
+- **Visualization Type:** Heatmap
 
-**📊 Visualization Details:**
-- **왼쪽 그래프 (요일별)**:
-  - X축: 요일 (월요일 ~ 일요일)
-  - Y축: 평균 조회수
-  - 그래프 형식: 막대 그래프 (Bar plot)
-- **오른쪽 그래프 (시간대별)**:
-  - X축: 시간 (0시 ~ 23시)
-  - Y축: 평균 조회수
-  - 그래프 형식: 막대 그래프 (Bar plot)
+🔍 **Expected vs Actual Results:**
+- **Expected:** Higher views on weekends and evening hours (6-9 PM)
+- **Actual:** Peak performance varies by category: Fashion peaks on weekdays, Mukbang peaks late night, Travel peaks on weekends
 
-**🔍 Expected vs Actual Results:**
-- **Expected:** 모든 카테고리가 주말(토, 일)과 저녁 시간대(18~22시)에 고르게 높은 조회수를 보일 것
-- **Actual Results:**
-  - **패션**: 주중 오후(14~18시)와 주말 낮 시간대 강세 - 쇼핑 고려 시간대와 일치
-  - **먹방**: 식사 시간대(12~13시, 18~20시) 집중, 요일 영향은 예상보다 적음 - 식욕 자극 타이밍
-  - **여행**: 일요일 저녁(18~21시) 최고 성과 - 주말 여행 후 대리만족 심리
-  - 카테고리별 최적 시간이 예상보다 명확히 차별화됨
-  - 글로벌 시청자를 타겟하는 채널은 한국 시간 기준과 다른 패턴 보임
-
-
-**📊 Visualization Details:**
-- **Chart Type**: Two side-by-side bar plots
-- **Left Graph (Day of Week)**:
-  - X-axis: Days of week (Monday ~ Sunday in Korean)
-  - Y-axis: Average views
-  - Format: Vertical bar chart
-- **Right Graph (Hour of Day)**:
-  - X-axis: Hour (0 ~ 23)
-  - Y-axis: Average views
-  - Format: Vertical bar chart
-- **Output**: Pair of graphs for each of top 5 channels in each category
-
-**🔍 Expected vs Actual Results:**
-- **Expected:** All categories would show uniformly high views on weekends (Sat/Sun) and evening hours (18:00-22:00)
-- **Actual Results:**
-  - **Fashion:** Weekday afternoons (14:00-18:00) and weekend mornings showed strength - aligns with shopping consideration timing
-  - **Mukbang:** Concentrated at meal times (12:00-13:00, 18:00-20:00), day of week impact was LESS than expected - appetite stimulation timing matters most
-  - **Travel:** Sunday evenings (18:00-21:00) peaked - post-weekend vicarious satisfaction psychology
-  - Optimal timing was MORE clearly differentiated by category than expected
-  - Global audience-targeting channels showed different patterns from KST baseline
-**Technical Implementation:**
-- **Temporal Data Processing**: DateTime parsing and timezone handling for accurate time-based analysis
-- **Statistical Correlation**: Pearson correlation coefficients between upload timing and performance metrics
-- **Heatmap Visualization**: Advanced matplotlib/seaborn heatmaps showing day-hour performance matrices
-- **Korean Day Mapping**: Proper Korean day-of-week localization (월요일, 화요일, etc.)
-
-**Analytical Methodology:**
-- **Day-of-Week Analysis**: 7-day cycle analysis identifying optimal posting days
-- **Hour-by-Hour Optimization**: 24-hour analysis determining peak engagement windows
-- **Category Stratification**: Separate analysis for each content category to account for audience differences
-- **Performance Correlation**: Statistical relationship between timing and views/likes/comments
-
-**Key Insights:**
-- Optimal upload days vary significantly by content category
-- Peak engagement hours differ between weekdays and weekends
-- Gaming content performs better on weekend evenings
-- Food content shows strong performance during meal times
-- K-POP content has global audience considerations affecting optimal timing
-
-**📊 Visualization:**
-![Upload Timing Heatmap 1](visualizations/analysis_19.png)
-![Upload Timing Heatmap 2](visualizations/analysis_20.png)
-![Upload Timing Heatmap 3](visualizations/analysis_21.png)
-*Heatmap showing optimal upload days and hours for maximum views across different content categories*
-
+![Analysis 2](visualizations/02_timing_analysis/timing_heatmap.png)
 
 ### 3. **Upload Frequency Analysis - 업로드 주기 분석** (`03_upload_frequency_analysis.py`)
-**Determining the optimal upload frequency interval (in days) for maximum performance**
+**Analyzing average views and likes based on upload frequency intervals**
 
+📊 **Visualization Details:**
+- **X-axis:** Upload interval (days between videos)
+- **Y-axis:** Average views and likes
+- **Visualization Type:** Bar chart with line plot
 
-**📊 Visualization Details:**
-- **왼쪽 그래프 (조회수)**:
-  - X축: 업로드 주기 (1일, 2-3일, 4-5일, 6-7일, 8-14일, 15-30일)
-  - Y축: 평균 조회수
-  - 그래프 형식: 막대 그래프 (각 막대 위에 영상 개수 n 표시)
-- **오른쪽 그래프 (좋아요수)**:
-  - X축: 업로드 주기 (동일)
-  - Y축: 평균 좋아요수
-  - 그래프 형식: 막대 그래프 (각 막대 위에 영상 개수 n 표시)
+🔍 **Expected vs Actual Results:**
+- **Expected:** More frequent uploads (1-3 days) lead to higher engagement
+- **Actual:** Moderate frequency (4-7 days) shows best performance after outlier removal, suggesting quality over quantity
 
-**🔍 Expected vs Actual Results:**
-- **Expected:** 업로드 주기가 짧을수록 (매일 또는 2-3일) 조회수가 높을 것으로 예상
-- **Actual Results:**
-  - **패션**: 4-7일 주기가 최적 - 품질 vs 빈도의 균형점 발견
-  - **먹방**: 2-3일 주기가 최고 성과 - 높은 콘텐츠 소비 속도 반영
-  - **여행**: 6-7일 주기 우수 - 고퀄리티 콘텐츠 제작 시간 필요
-  - **Key Findings:** 너무 잦은 업로드(매일)는 오히려 조회수 감소 - 구독자 피로도 증가
-  - IQR 방식으로 이상치 제거 후 31일 이상 장기 공백은 알고리즘 불이익으로 제외
-  - 일관된 업로드 주기 유지가 알고리즘 추천에 긍정적 영향
-
-
-**📊 Visualization Details:**
-- **Chart Type**: Two side-by-side bar plots with sample sizes
-- **Left Graph (Views)**:
-  - X-axis: Upload frequency intervals (1일, 2-3일, 4-5일, 6-7일, 8-14일, 15-30일)
-  - Y-axis: Average views
-  - Format: Vertical bar chart with (n=X) labels showing video count per category
-- **Right Graph (Likes)**:
-  - X-axis: Same frequency intervals
-  - Y-axis: Average likes
-  - Format: Vertical bar chart with (n=X) labels
-- **Output**: Pair of graphs for each of top 5 channels in each category
-- **Note**: Outlier removal applied using IQR method; frequencies >30 days excluded
-
-**🔍 Expected vs Actual Results:**
-- **Expected:** Shorter upload intervals (daily or 2-3 days) would yield higher views
-- **Actual Results:**
-  - **Fashion:** 4-7 day intervals optimal - discovered quality vs frequency balance point
-  - **Mukbang:** 2-3 day intervals best performance - reflects high content consumption speed
-  - **Travel:** 6-7 day intervals superior - requires time for high-quality content production
-  - **Critical Finding:** TOO frequent uploads (daily) actually DECREASED views - subscriber fatigue increases
-  - IQR-based outlier removal; 31+ day gaps excluded due to algorithm penalties and subscriber attrition
-  - Consistent upload rhythm positively influences algorithm recommendations
-**Technical Implementation:**
-- **Interval Calculation Algorithm**: Advanced date difference calculations between consecutive uploads
-- **Consistency Metrics**: Statistical measures of upload regularity using coefficient of variation
-- **Performance Correlation Analysis**: Multiple regression analysis between frequency and engagement metrics
-- **Categorical Segmentation**: Frequency analysis stratified by content type and channel size
-
-**Analytical Framework:**
-- **Upload Pattern Recognition**: Identification of daily, weekly, bi-weekly, and monthly posting patterns
-- **Consistency vs Performance**: Correlation analysis between upload regularity and view performance
-- **Optimal Frequency Determination**: Statistical modeling to identify ideal posting intervals
-- **Channel Size Considerations**: Frequency recommendations adjusted for subscriber count tiers
-
-**Research Findings:**
-- Consistent upload schedules significantly impact audience retention
-- Optimal frequency varies by category (Gaming: 3-4x/week, Cooking: 2x/week, Travel: 1x/week)
-- Over-posting can lead to audience fatigue and decreased per-video performance
-- Smaller channels benefit from higher frequency to build audience, while established channels optimize for quality
-- Weekend uploads show different performance patterns than weekday uploads
-
-**📊 Visualization:**
-![Upload Frequency Analysis 1](visualizations/analysis_22.png)
-![Upload Frequency Analysis 2](visualizations/analysis_23.png)
-![Upload Frequency Analysis 3](visualizations/analysis_24.png)
-*Bar charts comparing optimal upload frequency patterns and their correlation with average views per video across categories*
-
+![Analysis 3](visualizations/03_upload_frequency/frequency_analysis.png)
 
 ### 4. **Correlation Analysis - 상관관계 분석** (`04_correlation_analysis.py`)
-**Positive correlation between views and likes & views and comments**
+**Analyzing correlation between views, likes, and comments by category and channel**
 
+📊 **Visualization Details:**
+- **X-axis:** Views
+- **Y-axis:** Likes / Comments
+- **Visualization Type:** Scatter plot with regression line
 
-**📊 Visualization Details:**
-- **산점도 (Scatter Plot)**:
-  - X축: 조회수 (로그 스케일 가능)
-  - Y축: 좋아요수 또는 댓글수
-  - 추가: 회귀선 (Regression line) 및 상관계수 (r) 표시
-- **히트맵 (Heatmap)**:
-  - X/Y축: 각 지표 (조회수, 좋아요, 댓글, 구독자 등)
-  - 색상: 상관계수 크기 (-1 ~ +1)
+🔍 **Expected vs Actual Results:**
+- **Expected:** Strong positive correlation between views and engagement metrics
+- **Actual:** Very strong correlation (>0.9) for views-likes, moderate for views-comments, indicating likes are more consistent engagement metric
 
-**🔍 Expected vs Actual Results:**
-- **Expected:** 조회수 ↔ 좋아요수, 조회수 ↔ 댓글수 모두 강한 양의 상관관계 예상
-- **Actual Results:**
-  - **조회수 ↔ 좋아요수**: 매우 강한 양의 상관관계 확인 (r = 0.85~0.92)
-    - 예상대로 강한 선형 관계
-    - 패션 > 먹방 > 여행 순으로 상관계수 높음
-  - **조회수 ↔ 댓글수**: 중간~강한 양의 상관관계 (r = 0.65~0.78)
-    - 좋아요보다 낮은 상관관계 - 댓글은 더 능동적인 참여 필요
-    - 먹방 카테고리에서 댓글 참여도가 상대적으로 높음 (맛 평가, 레시피 요청 등)
-  - 채널 규모에 따라 상관관계 패턴 차이 존재
-  - 바이럴 영상(이상치)은 일반적 패턴에서 벗어남
+![Analysis 4](visualizations/04_correlation/correlation_matrix.png)
 
+### 5. **Video Duration Analysis - 영상 길이 분석** (`05_video_duration_analysis.py`)
+**Comparing top 10 and bottom 10 video durations relative to view counts**
 
-**📊 Visualization Details:**
-- **Chart Type**: Scatter plots with regression lines
-- **Scatter Plot Configuration**:
-  - X-axis: Views (log scale possible)
-  - Y-axis: Likes OR Comments
-  - Additional elements: Regression line + correlation coefficient (r) display
-  - Points: Individual videos colored by category
-- **Output**: Separate scatter plots for Views vs Likes and Views vs Comments for each category
+📊 **Visualization Details:**
+- **X-axis:** Video duration (minutes)
+- **Y-axis:** Views
+- **Visualization Type:** Box plot comparison
 
-**🔍 Expected vs Actual Results:**
-- **Expected:** Both Views ↔ Likes and Views ↔ Comments would show strong positive correlations
-- **Actual Results:**
-  - **Views ↔ Likes:** VERY strong positive correlation confirmed (r = 0.85~0.92)
-    - Strong linear relationship as expected
-    - Correlation strength: Fashion > Mukbang > Travel
-  - **Views ↔ Comments:** Moderate-strong positive correlation (r = 0.65~0.78)
-    - LOWER correlation than likes - comments require more active engagement
-    - Mukbang category showed relatively higher comment engagement (taste evaluation, recipe requests, etc.)
-  - Correlation patterns vary by channel size
-  - Viral videos (outliers) deviate from general patterns
-**Statistical Methodology:**
-- **Pearson Correlation**: Linear relationship analysis between continuous variables
-- **Spearman Correlation**: Non-parametric correlation for non-linear relationships
-- **Significance Testing**: P-value calculations (p < 0.05) for statistical validity
-- **Effect Size Analysis**: Cohen's guidelines for correlation strength interpretation
+🔍 **Expected vs Actual Results:**
+- **Expected:** Optimal duration around 10-15 minutes
+- **Actual:** Top performers vary widely (5-20 min), bottom performers often too short (<3 min) or too long (>25 min), showing content quality matters more than duration
 
-**Advanced Analytical Techniques:**
-- **Multivariate Analysis**: Multiple correlation analysis across views, likes, comments, and shares
-- **Category Stratification**: Separate correlation analysis for each content type
-- **Outlier Detection**: Statistical outlier identification and robust correlation analysis
-- **Confidence Intervals**: 95% confidence intervals for all correlation coefficients
+![Analysis 5](visualizations/05_duration/duration_distribution.png)
 
-**Visualization Techniques:**
-- **Correlation Matrices**: Heatmap visualizations with color-coded correlation strengths
-- **Scatter Plot Analysis**: Individual relationship visualization with trend lines
-- **Statistical Distribution**: Histogram analysis of engagement metric distributions
-- **Regression Analysis**: Linear and non-linear regression modeling
+### 6. **Channel Age Analysis - 채널 연령 분석** (`06_channel_age_analysis.py`)
+**Comparing total subscribers and views based on channel creation date**
 
-**Key Statistical Findings:**
-- Strong positive correlation between views and likes (r = 0.85-0.92 across categories)
-- Moderate positive correlation between views and comments (r = 0.65-0.78)
-- Category-specific variations: Gaming shows stronger engagement correlations than educational content
-- Subscriber count moderates the relationship between views and engagement
-- Comment-to-like ratios vary significantly by content type
+📊 **Visualization Details:**
+- **X-axis:** Channel age (years since creation)
+- **Y-axis:** Total subscribers and views
+- **Visualization Type:** Line plot with dual axes
 
-**📊 Visualization:**
-![Correlation Analysis](visualizations/analysis_25.png)
-*Correlation heatmap and scatter plots displaying statistical relationships between views, likes, comments, and subscriber metrics*
+🔍 **Expected vs Actual Results:**
+- **Expected:** Linear growth with channel age
+- **Actual:** Exponential growth pattern - established channels (3+ years) show disproportionately higher metrics, suggesting compound growth effects
 
+![Analysis 6](visualizations/06_channel_age/age_analysis.png)
 
-### 5. **Video Duration Analysis - 재생시간 분석** (`05_video_duration_analysis.py`)
-**Does longer video duration lead to lower views? Investigating viewer fatigue with increasing video length**
+### 7. **Expected Views Analysis - 기대 조회수 분석** (`07_expected_views_analysis.py`)
+**Analyzing whether videos meet expected view counts by category and channel**
 
+📊 **Visualization Details:**
+- **X-axis:** Videos
+- **Y-axis:** Expected vs Actual views
+- **Visualization Type:** Bar comparison chart
 
-**📊 Visualization Details:**
-- **산점도 (Scatter Plot)**:
-  - X축: 재생시간 (분 단위)
-  - Y축: 조회수
-  - 점 색상: 상위/하위 구분
-- **박스플롯 (Box Plot)** 또는 **막대그래프 (Bar Chart)**:
-  - X축: 상위 10개 vs 하위 10개
-  - Y축: 평균 재생시간 (분)
+🔍 **Expected vs Actual Results:**
+- **Expected:** Most videos meet or exceed expected views
+- **Actual:** Only 40-60% of videos meet expectations, with high variance across categories and channels, suggesting unpredictable performance
 
-**🔍 Expected vs Actual Results:**
-- **Expected:** 영상이 길수록 시청자 피로도로 조회수가 단조 감소할 것
-- **Actual Results:**
-  - **패션**: 8-12분이 최적 구간 - 충분한 정보 전달 + 집중력 유지 균형
-  - **먹방**: 10-15분 선호 - 실제 식사 시간과 유사한 길이
-  - **여행**: 이분화 패턴 발견 - 짧은 하이라이트(5-8분) vs 긴 브이로그(15-25분) 모두 성공
-  - **너무 짧은 영상**(< 5분)도 조회수 낮음 - 콘텐츠 가치 부족으로 인식
-  - **20분 초과** 시 급격한 조회수 감소 확인 - 시청 피로도 급증
-  - **상위 10개 평균**: 8-12분 / **하위 10개 평균**: 3분 미만 또는 20분 초과
-  - 쇼츠(< 60초)는 별도 알고리즘으로 분석 제외
-
-
-**📊 Visualization Details:**
-- **Chart Type**: Scatter plot with color-coded points
-- **Scatter Plot**:
-  - X-axis: Video duration (minutes)
-  - Y-axis: Views
-  - Point colors: Top performers vs bottom performers
-  - Trend line may be included
-- **Comparison**: Top 10 vs Bottom 10 videos by views, analyzing average duration differences
-- **Output**: Visualizations for each category showing duration-performance relationship
-
-**🔍 Expected vs Actual Results:**
-- **Expected:** Views would monotonically decrease as videos get longer due to viewer fatigue
-- **Actual Results:**
-  - **Fashion:** 8-12 minute sweet spot - balance of sufficient information delivery + attention maintenance
-  - **Mukbang:** 10-15 minutes preferred - similar to actual meal duration
-  - **Travel:** BIMODAL pattern discovered - both short highlights (5-8 min) AND long vlogs (15-25 min) succeed
-  - **Very short videos** (< 5 min) also underperform - perceived as lacking content value
-  - **20+ minutes:** Sharp view decline confirmed - viewer fatigue spikes
-  - **Top 10 average:** 8-12 minutes / **Bottom 10 average:** <3 minutes or >20 minutes
-  - Shorts (< 60 seconds) use separate algorithm, excluded from analysis
-**Technical Implementation:**
-- **Duration Parsing**: Conversion of duration strings to numerical minutes for statistical analysis
-- **Categorical Segmentation**: Classification of videos into short (< 5 min), medium (5-15 min), and long (> 15 min) categories
-- **Performance Regression**: Multiple linear regression analyzing duration impact on views and engagement
-- **Outlier Management**: Statistical outlier removal (Shorts videos < 60 seconds excluded)
-
-**Analytical Framework:**
-- **Top vs Bottom Performance**: Comparative analysis of highest and lowest performing videos by duration
-- **Category-Specific Patterns**: Duration preference analysis for each content type
-- **Viewer Fatigue Analysis**: Statistical evidence for attention span limitations
-- **Optimal Duration Modeling**: Data-driven recommendations for video length optimization
-
-**Key Research Findings:**
-- Gaming content: Optimal duration 8-12 minutes, longer videos show performance decline
-- Food content: Sweet spot at 6-10 minutes, very short content underperforms
-- K-POP: Music videos (3-5 min) vs variety content (15-30 min) show different patterns
-- Educational content: Longer videos (10-20 min) often outperform shorter ones
-- Viewer fatigue confirmed: Performance generally decreases after 15-minute threshold
-
-**📊 Visualization:**
-![Video Duration Analysis 1](visualizations/analysis_26.png)
-![Video Duration Analysis 2](visualizations/analysis_27.png)
-![Video Duration Analysis 3](visualizations/analysis_28.png)
-*Scatter plots and box plots showing the relationship between video duration and average views, comparing top 10 vs bottom 10 performing videos by category*
-
-
-### 6. **Channel Age Analysis - 채널 나이 분석** (`06_channel_age_analysis.py`)
-**Older channel creation date does not guarantee higher total subscribers and views**
-
-
-**📊 Visualization Details:**
-- **산점도 (Scatter Plot)**:
-  - X축: 채널 연령 (년 단위)
-  - Y축: 총 구독자수 또는 총 조회수
-  - 점 크기: 동영상 수
-  - 점 색상: 카테고리별 구분
-
-**🔍 Expected vs Actual Results:**
-- **Expected:** 채널 개설일이 오래될수록 총 구독자수와 조회수가 선형적으로 증가할 것
-- **Actual Results:**
-  - **채널 나이 ≠ 성공**: 예상과 완전히 다르게 명확한 양의 상관관계 없음
-  - **오래된 채널 (5년+)** 중 휴면/비활성 상태는 신규 채널보다 성과 낮음
-  - **신규 채널 (1-2년)**이 일관된 업로드로 빠른 성장하는 사례 다수 발견
-  - **유튜브 알고리즘 변화**: 최근 콘텐츠를 우선 추천하는 특성
-  - **콘텐츠 품질 > 채널 연령**: 꾸준한 고품질 콘텐츠가 채널 나이보다 훨씬 중요
-  - **최적 성장 구간**: 2-4년차 채널이 가장 높은 성장률 보임 (성숙기)
-  - 5년 이상 채널은 리브랜딩 없이는 성장 정체 경향
-
-
-**📊 Visualization Details:**
-- **Chart Type**: Scatter plot
-- **Configuration**:
-  - X-axis: Channel age (years since creation)
-  - Y-axis: Total subscribers OR total views
-  - Point size: Video count (larger = more videos)
-  - Point color: Category differentiation
-- **Output**: Single scatter plot showing all channels across categories
-
-**🔍 Expected vs Actual Results:**
-- **Expected:** Older channel creation dates would linearly correlate with higher subscribers and views
-- **Actual Results:**
-  - **Age ≠ Success:** COMPLETELY contrary to expectations - NO clear positive correlation
-  - **Older channels (5+ years):** Dormant/inactive ones perform WORSE than new channels
-  - **New channels (1-2 years):** Many cases of rapid growth with consistent uploads discovered
-  - **YouTube Algorithm Change:** Algorithm preferentially recommends recent content
-  - **Content Quality > Channel Age:** Consistent high-quality content VASTLY more important than age
-  - **Optimal Growth Window:** 2-4 year channels show highest growth rates (maturity phase)
-  - 5+ year channels show growth stagnation without rebranding
-**Technical Implementation:**
-- **Age Calculation**: Precise datetime calculations from channel creation date to analysis date
-- **Temporal Data Processing**: Timezone normalization and date standardization
-- **Growth Rate Analysis**: Mathematical modeling of subscriber and view growth patterns
-- **Statistical Correlation**: Age vs performance correlation analysis with confidence intervals
-
-**Research Methodology:**
-- **Channel Maturity Classification**: Grouping channels by age (< 1 year, 1-3 years, 3-5 years, > 5 years)
-- **Performance Normalization**: Per-video and per-month performance metrics to account for content volume
-- **Growth Trajectory Modeling**: Exponential and linear growth pattern identification
-- **Survival Analysis**: Channel longevity and sustained performance analysis
-
-**Counter-Intuitive Findings:**
-- **Age ≠ Success**: Older channels don't automatically have higher subscriber counts or views
-- **Quality over Longevity**: Recent high-quality channels often outperform older, inconsistent ones
-- **Algorithm Evolution**: YouTube algorithm changes favor recent, engaging content over channel age
-- **Content Freshness**: Newer channels benefit from current trends and algorithm preferences
-- **Optimal Growth Window**: Channels show strongest growth in years 2-4, then plateau or decline
-
-**📊 Visualization:**
-![Channel Age Analysis](visualizations/analysis_29.png)
-*Scatter plot analysis comparing channel creation date with total subscribers and views, demonstrating no strong linear correlation between channel age and performance*
-
-
-### 7. **Expected Views Analysis - 기대조회수 분석** (`07_expected_views_analysis.py`)
-**Analyzing recent 200 videos' performance against channel expected view baseline and forecasting future channel trends**
-
-
-**📊 Visualization Details:**
-- **선 그래프 (Line Chart)**:
-  - X축: 영상 번호 (최근 200개 영상을 시간 순서대로)
-  - Y축: 조회수
-  - 두 개의 선: 실제 조회수 (실선) vs 기대 조회수 기준선 (점선)
-- **막대 그래프 (Bar Chart)**:
-  - X축: 채널명 또는 카테고리
-  - Y축: 기대치 충족률 (%)
-  - 등급 표시: A (>80%), B (60-80%), C (40-60%), D (20-40%), F (<20%)
-
-**🔍 Expected vs Actual Results:**
-- **Expected:** 대부분의 영상이 채널 평균(기대조회수) ±30% 범위에 정규 분포할 것
-- **Actual Results:**
-  - **파레토 법칙 적용**: 20-80 법칙 - 소수의 인기 영상이 전체 조회수의 대부분 차지
-  - **상위 20% 영상**: 기대치의 200-500% 달성 (바이럴 영상 효과)
-  - **중간 60% 영상**: 기대치의 50-150% 범위 (안정적 성과)
-  - **하위 20% 영상**: 기대치의 50% 미만 (실패 콘텐츠)
-  - 채널별로 일관성 차이 큼 - 일부는 매우 안정적, 일부는 변동성 높음
-  - 최근 200개 영상 트렌드로 성장/정체/하락 채널 명확히 구분 가능
-  - 일관된 성과를 내는 채널이 알고리즘에서 더 선호받음
-
-
-**📊 Visualization Details:**
-- **Chart Type 1**: Line chart with baseline
-- **Line Chart Configuration**:
-  - X-axis: Video number (recent 200 videos in chronological order)
-  - Y-axis: View count
-  - Two lines: Actual views (solid) vs Expected view baseline (dashed)
-- **Chart Type 2**: Bar chart with grades
-- **Bar Chart Configuration**:
-  - X-axis: Channel name or category
-  - Y-axis: Expectation fulfillment rate (%)
-  - Grade labels: A (>80%), B (60-80%), C (40-60%), D (20-40%), F (<20%)
-- **Output**: Performance comparison for recent 200 videos per channel
-
-**🔍 Expected vs Actual Results:**
-- **Expected:** Most videos would normally distribute within ±30% of channel average (expected views)
-- **Actual Results:**
-  - **Pareto Principle Applied:** 20-80 rule - small number of popular videos account for most total views
-  - **Top 20% videos:** Achieve 200-500% of expectations (viral video effect)
-  - **Middle 60% videos:** Range of 50-150% of expectations (stable performance)
-  - **Bottom 20% videos:** Below 50% of expectations (failed content)
-  - Consistency varies greatly by channel - some very stable, others highly volatile
-  - Recent 200-video trends clearly distinguish growing/stagnant/declining channels
-  - Channels with consistent performance are MORE preferred by algorithm
-**Predictive Modeling Framework:**
-- **Baseline Calculation**: Total views ÷ Total videos = Channel expected view baseline
-- **Recent Performance**: Analysis of most recent 200 videos for trend identification
-- **Success Rate Calculation**: Percentage of videos meeting or exceeding expected performance
-- **Performance Grading System**: A-F classification based on success rates (A: >80%, B: 60-80%, C: 40-60%, D: 20-40%, F: <20%)
-
-**Advanced Analytics:**
-- **Trend Forecasting**: Time series analysis predicting future performance trajectories
-- **Performance Consistency**: Coefficient of variation analysis for performance stability
-- **Expectation Calibration**: Dynamic adjustment of expectations based on recent performance
-- **Channel Health Assessment**: Multi-metric evaluation of channel sustainability
-
-**Strategic Insights:**
-- **Performance Benchmarking**: Channels compared against their own historical performance
-- **Growth Trajectory Identification**: Ascending, stable, or declining performance patterns
-- **Content Strategy Effectiveness**: Analysis of recent content performance vs historical averages
-- **Future Viability Assessment**: Predictive modeling for channel longevity and growth potential
-- **Intervention Recommendations**: Data-driven suggestions for performance improvement
-
-**📊 Visualization:**
-![Expected Views Analysis](visualizations/analysis_30.png)
-*Bar charts and performance grading visualization comparing expected views baseline with actual performance of recent 200 videos, with trend analysis*
-
+![Analysis 7](visualizations/07_expected_views/performance_comparison.png)
 
 ### 8. **Subscriber Ratio Analysis - 구독자 비율 분석** (`08_subscriber_ratio_analysis.py`)
-**Comparing views-to-subscriber ratios and presenting current trends and future development directions for channels by category**
+**Comparing and analyzing total views to total subscriber ratios**
 
+📊 **Visualization Details:**
+- **X-axis:** Category / Channel
+- **Y-axis:** Views per subscriber ratio
+- **Visualization Type:** Multi-panel comparison
 
-**📊 Visualization Details:**
-- **산점도 (Scatter Plot)**:
-  - X축: 구독자수 (로그 스케일)
-  - Y축: 평균 조회수 또는 조회수/구독자 비율
-  - 점 색상: 효율성 등급 (고/중/저)
-- **막대 그래프 (Bar Chart)**:
-  - X축: 카테고리
-  - Y축: 평균 조회수/구독자 비율
-  - 색상: 카테고리별 구분
+🔍 **Expected vs Actual Results:**
+- **Expected:** Similar ratios across categories
+- **Actual:** Mukbang shows highest efficiency (views/subscriber), Travel shows highest absolute metrics, indicating different content consumption patterns
 
-**🔍 Expected vs Actual Results:**
-- **Expected:** 구독자수가 많을수록 영상당 조회수도 비례하여 높을 것 (선형 관계)
-- **Actual Results:**
-  - **구독자 효율성 차이**: 구독자 10만 vs 100만 채널의 조회수가 10배 차이 나지 않음
-  - **고효율 채널**: 구독자 대비 5배 이상 조회수 - 충성도 높은 활성 팬층 보유
-  - **저효율 채널**: 구독자 대비 2배 미만 조회수 - 많은 휴면 구독자 존재
-  - **Efficiency by Category:**
-    - 먹방: 가장 높은 효율 (평균 6-8배) - 반복 시청 콘텐츠
-    - 패션: 중간 효율 (평균 3-5배) - 트렌드 의존적
-    - 여행: 변동성 큼 (2-6배) - 계절/시즌 영향
-  - **구독자 구매 채널**: 매우 낮은 효율로 즉시 구분 가능
-  - **핵심 인사이트**: 구독자 수보다 구독자 품질(참여도)이 훨씬 중요
-
-
-**📊 Visualization Details:**
-- **Chart Type 1**: Scatter plot
-- **Scatter Plot Configuration**:
-  - X-axis: Subscriber count (log scale)
-  - Y-axis: Average views OR views/subscriber ratio
-  - Point colors: Efficiency grade (High/Medium/Low)
-- **Chart Type 2**: Bar chart by category
-- **Bar Chart Configuration**:
-  - X-axis: Category
-  - Y-axis: Average views/subscriber ratio
-  - Colors: Category differentiation
-- **Output**: Efficiency analysis comparing subscriber quality across categories
-
-**🔍 Expected vs Actual Results:**
-- **Expected:** Higher subscriber counts would proportionally yield higher views per video (linear relationship)
-- **Actual Results:**
-  - **Subscriber Efficiency Gap:** 100K vs 1M subscriber channels do NOT show 10x view difference
-  - **High-efficiency channels:** 5+ times views per subscriber - highly loyal active fanbase
-  - **Low-efficiency channels:** < 2 times views per subscriber - many dormant subscribers
-  - **Efficiency by Category:**
-    - Mukbang: Highest efficiency (avg 6-8x) - repeat viewing content
-    - Fashion: Medium efficiency (avg 3-5x) - trend-dependent
-    - Travel: High variability (2-6x) - seasonal/timing influences
-  - **Purchased subscriber channels:** Instantly identifiable by very low efficiency
-  - **Core Insight:** Subscriber QUALITY (engagement) vastly more important than quantity
-**Engagement Efficiency Metrics:**
-- **Views-per-Subscriber Ratio**: Primary metric for audience engagement quality assessment
-- **Subscriber Quality Index**: Composite score combining view ratio, comment ratio, and like ratio
-- **Engagement Rate Calculation**: (Views + Likes + Comments) ÷ Subscribers for comprehensive engagement measurement
-- **ROI Analysis**: Return on Investment calculation for subscriber acquisition vs performance
-
-**Advanced Performance Modeling:**
-- **Efficiency Classification**: High-efficiency (>5 views/subscriber), medium (2-5), low (<2) categories
-- **Cross-Category Benchmarking**: Subscriber efficiency comparison across different content types
-- **Growth Sustainability Analysis**: Correlation between subscriber growth rate and engagement maintenance
-- **Quality vs Quantity Assessment**: Analysis of channels with high subscriber counts vs high engagement rates
-
-**Strategic Business Intelligence:**
-- **Channel Valuation Metrics**: Data-driven assessment of channel commercial value
-- **Audience Quality Assessment**: Identification of channels with highly engaged vs passive audiences
-- **Growth Strategy Recommendations**: Targeted advice for subscriber acquisition vs engagement optimization
-- **Market Position Analysis**: Competitive positioning within category based on efficiency metrics
-- **Monetization Potential**: Correlation analysis between subscriber efficiency and revenue potential
-
-**📊 Visualization:**
-![Subscriber Ratio Analysis 1](visualizations/analysis_31.png)
-![Subscriber Ratio Analysis 2](visualizations/analysis_32.png)
-*Bar charts and comparative analysis showing views-to-subscriber ratios, engagement quality scores, and efficiency classification by category*
+![Analysis 8](visualizations/08_subscriber_ratio/ratio_comparison.png)
 
 
 ## 📁 Project Structure
