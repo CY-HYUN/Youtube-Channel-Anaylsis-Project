@@ -41,7 +41,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Common video title keywords like "VLOG", "Review", "Tutorial"
 - **Actual:** Category-specific keywords dominate: Fashion shows brand names, Mukbang shows food types, Travel shows location names
 
-![Analysis 1](visualizations/01_wordcloud/워드클라우드.png)
+![Analysis 1](visualizations/01_wordcloud/wordcloud_analysis.png)
 
 ### 2. **Upload Timing Analysis - 업로드 타이밍 분석** (`02_upload_timing_analysis.py`)
 **Analyzing optimal upload days and hours by category and channel**
@@ -55,7 +55,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Higher views on weekends and evening hours (6-9 PM)
 - **Actual:** Peak performance varies by category: Fashion peaks on weekdays, Mukbang peaks late night, Travel peaks on weekends
 
-![Analysis 2](visualizations/02_timing_analysis/업로드_타이밍.png)
+![Analysis 2](visualizations/02_timing_analysis/upload_timing.png)
 
 ### 3. **Upload Frequency Analysis - 업로드 주기 분석** (`03_upload_frequency_analysis.py`)
 **Analyzing average views and likes based on upload frequency intervals**
@@ -69,7 +69,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** More frequent uploads (1-3 days) lead to higher engagement
 - **Actual:** Moderate frequency (4-7 days) shows best performance after outlier removal, suggesting quality over quantity
 
-![Analysis 3](visualizations/03_upload_frequency/업로드_주기.png)
+![Analysis 3](visualizations/03_upload_frequency/upload_frequency.png)
 
 ### 4. **Correlation Analysis - 상관관계 분석** (`04_correlation_analysis.py`)
 **Analyzing correlation between views, likes, and comments by category and channel**
@@ -83,7 +83,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Strong positive correlation between views and engagement metrics
 - **Actual:** Very strong correlation (>0.9) for views-likes, moderate for views-comments, indicating likes are more consistent engagement metric
 
-![Analysis 4](visualizations/04_correlation/상관관계.png)
+![Analysis 4](visualizations/04_correlation/correlation_analysis.png)
 
 ### 5. **Video Duration Analysis - 영상 길이 분석** (`05_video_duration_analysis.py`)
 **Comparing top 10 and bottom 10 video durations relative to view counts**
@@ -97,7 +97,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Optimal duration around 10-15 minutes
 - **Actual:** Top performers vary widely (5-20 min), bottom performers often too short (<3 min) or too long (>25 min), showing content quality matters more than duration
 
-![Analysis 5](visualizations/05_duration/영상_길이.png)
+![Analysis 5](visualizations/05_duration/video_duration.png)
 
 ### 6. **Channel Age Analysis - 채널 연령 분석** (`06_channel_age_analysis.py`)
 **Comparing total subscribers and views based on channel creation date**
@@ -111,7 +111,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Linear growth with channel age
 - **Actual:** Exponential growth pattern - established channels (3+ years) show disproportionately higher metrics, suggesting compound growth effects
 
-![Analysis 6](visualizations/06_channel_age/채널_연령.png)
+![Analysis 6](visualizations/06_channel_age/channel_age.png)
 
 ### 7. **Expected Views Analysis - 기대 조회수 분석** (`07_expected_views_analysis.py`)
 **Analyzing whether videos meet expected view counts by category and channel**
@@ -125,7 +125,7 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Most videos meet or exceed expected views
 - **Actual:** Only 40-60% of videos meet expectations, with high variance across categories and channels, suggesting unpredictable performance
 
-![Analysis 7](visualizations/07_expected_views/기대_조회수.png)
+![Analysis 7](visualizations/07_expected_views/expected_views.png)
 
 ### 8. **Subscriber Ratio Analysis - 구독자 비율 분석** (`08_subscriber_ratio_analysis.py`)
 **Comparing and analyzing total views to total subscriber ratios**
@@ -139,33 +139,51 @@ This comprehensive data science project analyzes YouTube channel performance met
 - **Expected:** Similar ratios across categories
 - **Actual:** Mukbang shows highest efficiency (views/subscriber), Travel shows highest absolute metrics, indicating different content consumption patterns
 
-![Analysis 8](visualizations/08_subscriber_ratio/구독자_비율.png)
+![Analysis 8](visualizations/08_subscriber_ratio/subscriber_ratio.png)
 
 
 ## 📁 Project Structure
 
 ```
-YouTube-Channel-Analysis-Project/
-├── 📓 Notebooks_Visualizations/       # Jupyter notebooks & visualizations / 주피터노트북 및 시각화
-│   ├── YouTube_Channel_Analysis.ipynb
-│   └── YouTube_Channel_Analysis_Backup.ipynb
+Youtube-Channel-Analysis-Project/
+├── 📊 data/                              # Raw data files
+│   ├── youtube_fashion_data.csv          # Fashion category data
+│   ├── youtube_mukbang_data.csv          # Mukbang/Food category data
+│   └── youtube_travel_data.csv           # Travel category data
 │
-├── 📊 Analysis/                         # Individual analysis scripts / 개별 분석 스크립트
-│   ├── Data_Preprocessing.py          # Common data preprocessing functions / 공통데이터 전처리함수
-│   ├── 01_Wordcloud_Analysis.py       # Word cloud creation and analysis / 워드클라우드 생성 및 분석
-│   ├── 02_Upload_Timing_Analysis.py     # Upload timing optimization / 업로드 시간 최적화
-│   ├── 03_Upload_Frequency_Analysis.py  # Upload frequency optimization / 업로드 빈도 최적화
-│   ├── 04_Correlation_Analysis.py      # Correlation & significance tests / 상관관계 및 유의성 검정
-│   ├── 05_Video_Duration_Analysis.py    # Video length optimization / 동영상 길이 최적화
-│   ├── 06_Channel_Age_Analysis.py       # Channel age & growth analysis / 채널 연령 및 성장 분석
-│   ├── 07_Expected_Views_Analysis.py    # Expected vs. actual performance / 예상 vs 실제 성과 분석
-│   └── 08_Subscriber_Ratio_Analysis.py #Subscriber growth & ratio analysis / 구독자증가 및 비율분석
+├── 📓 notebooks/                         # Jupyter notebooks
+│   └── Youtube_Channel_Anaylsis_Project.ipynb  # Main analysis notebook
 │
-├── 📋 requirements.txt                  # Python package dependencies / 파이썬 패키지 의존성
-├── 📄 README.md                         # Comprehensive project documentation / 프로젝트 문서
-├── 📜 LICENSE                           # MIT license / MIT 라이선스
-├── 🔧 .gitignore                        # Git ignore rules / Git 무시 규칙
-└── 📁 .git/                             # Git version control folder / Git 버전 관리 폴더
+├── 🎨 visualizations/                    # Analysis visualizations
+│   ├── 01_wordcloud/
+│   │   ├── README.md
+│   │   └── wordcloud_analysis.png        # Word cloud by category
+│   ├── 02_timing_analysis/
+│   │   ├── README.md
+│   │   └── upload_timing.png             # Optimal upload timing heatmaps
+│   ├── 03_upload_frequency/
+│   │   ├── README.md
+│   │   └── upload_frequency.png          # Upload frequency analysis
+│   ├── 04_correlation/
+│   │   ├── README.md
+│   │   └── correlation_analysis.png      # Views vs engagement correlation
+│   ├── 05_duration/
+│   │   ├── README.md
+│   │   └── video_duration.png            # Video duration analysis
+│   ├── 06_channel_age/
+│   │   ├── README.md
+│   │   └── channel_age.png               # Channel age growth patterns
+│   ├── 07_expected_views/
+│   │   ├── README.md
+│   │   └── expected_views.png            # Performance vs expectations
+│   └── 08_subscriber_ratio/
+│       ├── README.md
+│       └── subscriber_ratio.png          # Subscriber efficiency metrics
+│
+├── 📄 README.md                          # Project documentation
+├── 📜 LICENSE                            # MIT license
+├── 🔧 .gitignore                         # Git ignore rules
+└── 📁 .git/                              # Git version control
 
 ```
 
@@ -202,70 +220,6 @@ YouTube-Channel-Analysis-Project/
 - **CSV Processing**: Multi-file data aggregation and standardization
 - **DateTime Processing**: Timezone handling and temporal analysis
 - **Data Validation**: Comprehensive data cleaning and outlier detection
-
-## 📋 Requirements
-
-```bash
-pip install pandas matplotlib seaborn wordcloud numpy scipy jupyter notebook google-api-python-client
-```
-
-**Or install from requirements.txt:**
-```bash
-pip install -r requirements.txt
-```
-
-## 🚀 Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/Youtube-Channel-Analysis-Project.git
-   cd Youtube-Channel-Analysis-Project
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Set up YouTube Data API (Optional)**
-   ```bash
-   # Get your API key from Google Cloud Console
-   # https://console.cloud.google.com/apis/credentials
-   export YOUTUBE_API_KEY="your_api_key_here"
-   ```
-
-4. **Run analyses**
-
-   **Demo Mode (using sample data):**
-   ```bash
-   # Generate sample visualizations
-   python generate_sample_visualizations.py
-
-   # Run individual analysis scripts with sample data
-   cd analysis
-   python 01_wordcloud_analysis.py
-   python 02_upload_timing_analysis.py
-   python 03_upload_frequency_analysis.py
-   python 04_correlation_analysis.py
-   python 05_video_duration_analysis.py
-   python 06_channel_age_analysis.py
-   python 07_expected_views_analysis.py
-   python 08_subscriber_ratio_analysis.py
-   ```
-
-   **Production Mode (with real API data):**
-   ```bash
-   # Run with your YouTube API key
-   cd analysis
-   python data_preprocessing.py --api-key YOUR_API_KEY
-   python 01_wordcloud_analysis.py --use-api
-   # ... (continue with other scripts)
-   ```
-
-   **Interactive Analysis:**
-   ```bash
-   jupyter notebook "notebooks, visualizations/Youtube_Channel_Anaylsis_Project.ipynb"
-   ```
 
 ## 📊 Key Analysis Insights & Research Findings
 
@@ -504,21 +458,6 @@ The project analyzes comprehensive data from Korean YouTube channels across 8 ma
 - **Real-time Processing**: Apache Kafka for streaming data analysis
 - **Web Dashboard**: React-based interactive visualization platform
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📧 Contact
-
-For questions or collaboration opportunities, please open an issue or contact the project maintainer.
-
----
-
----
 
 ## 📊 Research Impact & Recognition
 
