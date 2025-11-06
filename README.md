@@ -249,9 +249,22 @@ Managing performance expectations prevents creator burnout and helps identify wh
 **Comparing and analyzing total views to total subscriber ratios**
 
 📊 **Visualization Details:**
-- **X-axis:** Category / Channel
-- **Y-axis:** Views per subscriber ratio
-- **Visualization Type:** Multi-panel comparison
+- **Chart Title:** Total Views and Subscriber Count Comparison by Channel
+- **Y-axis:** Channel names (organized by category: Fashion, Mukbang, Travel)
+- **X-axis:** Total count values (combined scale for both views and subscribers)
+- **Visual Elements:**
+  - 🔵 **Blue bars:** Total Views (총 조회수)
+  - 🟢 **Green bars:** Total Subscriber Count (총 구독자수)
+  - 💜 **Purple dotted line:** Average Total Views across all channels
+  - 💛 **Yellow dotted line:** Average Total Subscriber Count across all channels
+- **Visualization Type:** Horizontal bar chart with dual metrics and reference lines
+
+**📌 Special Note on Fashion Category Visualization:**
+The Fashion category appears twice in the visualization with different scaling approaches:
+1. **First Fashion Panel:** Raw data showing that subscriber counts vastly exceed view counts, making the comparison difficult to read
+2. **Final Fashion Panel (Enhanced):** Ratio-adjusted visualization that proportionally scales the metrics for better visual comparison and interpretation
+
+This dual representation demonstrates the challenge of comparing metrics with vastly different magnitudes and shows the improved readability achieved through proper data scaling.
 
 🔍 **Expected vs Actual Results:**
 - **Expected:** Similar ratios across categories
