@@ -21,8 +21,8 @@ Statistical analysis of what actually drives video performance on Korean YouTube
 Clone the repository:
 
 ```bash
-git clone https://github.com/CY-HYUN/Youtube-Channel-Anaylsis-Project.git
-cd Youtube-Channel-Anaylsis-Project
+git clone https://github.com/CY-HYUN/Youtube-Channel-Analysis-Project.git
+cd Youtube-Channel-Analysis-Project
 ```
 
 Install dependencies:
@@ -68,7 +68,7 @@ plot windows (`plt.show()`).
 ## Repository Structure
 
 ```text
-Youtube Channel Anaylsis Project/
+Youtube Channel Analysis Project/
 ├── analysis/                           # Modular pipeline: 8 standalone analyses + shared preprocessing
 │   ├── data_preprocessing.py           # Shared module: loading, sample generator, cleaning, Korean fonts
 │   ├── 01_wordcloud_analysis.py        # Title keywords per category (requires wordcloud)
