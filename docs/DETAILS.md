@@ -13,7 +13,9 @@ grounded in the code (`analysis/`) and the original-data notebook run
   upload datetime) and per-channel metadata (subscribers, creation date, total views,
   video count). The CSVs are private and gitignored.
 - **Size after preprocessing:** 2,125 videos remained in the upload-frequency analysis
-  (per-channel counts below) after Shorts removal and outlier filtering.
+  (per-channel counts below) after keeping upload gaps of 1–30 days and removing view
+  outliers (1.5×IQR, per channel). Shorts were not removed in this analysis: the shared
+  Shorts filter looks for a column name the data does not have and only prints a warning.
 
 ## Preprocessing Pipeline (`analysis/data_preprocessing.py`)
 
@@ -21,8 +23,9 @@ grounded in the code (`analysis/`) and the original-data notebook run
    comments, and video counts.
 2. Upload dates parsed to datetime; day-of-week and hour-of-day columns derived.
 3. Rows with unparseable upload dates dropped.
-4. Shorts removed: videos with duration ≤ 60 seconds (the notebook uses a ≥ 70s filter on
-   the raw seconds column).
+4. Shorts removed: videos with duration ≤ 60 seconds. In the notebook, Shorts are removed
+   only in the duration analysis (> 60 s) and the expected-views analysis (≥ 70 s); the
+   shared notebook filter did not fire, so the other analyses include Shorts.
 5. Remaining numeric missing values filled with 0.
 6. When no CSVs are present, `generate_sample_data()` produces a seeded synthetic dataset
    (6 categories × 5 channels × 100 videos = 3,000 rows, seed 42) so every script stays
@@ -87,7 +90,7 @@ coefficients, so no real-data r values are claimed.
 ## Analysis 5 — Video Duration (`05_video_duration_analysis.py`)
 
 Compares the duration of each channel's top-10 and bottom-10 videos by views
-(99th-percentile trims applied), annotating both groups' average durations per channel,
+(the script adds 99th-percentile trims; the notebook run did not use them), annotating both groups' average durations per channel,
 alongside per-channel views and duration distributions. Motivating question from the
 notebook: do longer videos fatigue viewers and earn fewer views? The answer in this
 sample is channel-dependent — the direction even flips between channels: for 한별Hanbyul
@@ -97,8 +100,9 @@ Duration alone does not separate winners from losers.
 
 ## Analysis 6 — Channel Age (`06_channel_age_analysis.py`)
 
-Compares channel creation dates against total subscribers and total views (with
-99th-percentile outlier trimming on the views/subscriber ratio). Conclusion from the
+Compares channel creation dates against total subscribers and total views (the script
+adds 99th-percentile trimming on the views/subscriber ratio; the notebook run did not).
+With 15 channels and no statistical test, this is an observation, not a tested result. Conclusion from the
 original run, stated in the notebook: channel age does not guarantee higher subscriber
 or view totals — several younger channels outrank older ones in the sample.
 
@@ -113,18 +117,20 @@ recent expected views  = views of the (preprocessed) recent-200 videos ÷ their 
 
 Each video is compared against these baselines; per-category pie charts show the share
 of videos meeting each expectation, and the script version bands results by view
-quartiles. In every category, a substantial share of videos fall short of the channel
-baseline — under-performance relative to channel average is routine.
+quartiles. In every category, most videos fall short of the channel baseline. Part of this is
+built into the baseline: views are right-skewed, so a mean pulled up by a few hits sits
+above most videos. A median baseline was not computed.
 
 ## Analysis 8 — Subscriber Ratio (`08_subscriber_ratio_analysis.py`)
 
 Compares each channel's total views against total subscribers, computes the ratio, and
 benchmarks it against the category average, generating per-channel guidance tables (in
-the notebook output). The real-data figure contains two Fashion panels: a first pass on
-raw values where the subscriber axis scale made comparison unreadable, and a corrected,
-rescaled pass — kept both to document the scaling fix. Ratios vary widely between
-channels in the same category, which is why subscriber count alone is treated as a weak
-engagement indicator.
+the notebook output). The real-data figure contains two Fashion panels: a first pass
+that sums the subscriber count over every video row (`'sum'`), and a corrected pass that
+takes one value per channel (`'max'`). The Mukbang and Travel panels still use `'sum'`, so
+their ratios are not per-channel views-per-subscriber, and no cross-channel finding is
+drawn from this analysis. The script version takes one value per channel but was not run
+on the real data.
 
 ## Korean Language Handling
 

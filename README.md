@@ -1,16 +1,17 @@
 # YouTube Channel Analysis Project
 
-Statistical analysis of what actually drives video performance on Korean YouTube — upload timing, upload cadence, video duration, and engagement patterns — across 15 top channels in Fashion, Mukbang, and Travel.
+Descriptive statistical analysis of how video performance on Korean YouTube varies with upload timing, upload cadence, video duration, and engagement — across 15 channels in Fashion, Mukbang, and Travel.
 
 *Python · pandas · SciPy · Matplotlib/Seaborn · YouTube Data API v3 · 15 channels, 2,125 videos.*
 
 ## Results at a Glance
 
-- **2,125 videos / 15 channels / 3 categories** analyzed: the 5 top Korean channels in each of Fashion, Mukbang, and Travel, up to 200 recent videos per channel (Shorts and statistical outliers removed).
-- **Daily uploading was optimal for only 3 of 15 channels.** The view-maximizing upload interval is channel-specific, ranging from 1 day up to 8–14 days — there is no universal "best cadence."
-- **For 10 of 15 channels, one upload interval maximized both views and likes**, so cadence effects are consistent across engagement metrics.
-- **Likes track views far more tightly than comments** in every one of the 18 per-channel and per-category scatter panels — likes are the more reliable engagement signal.
-- **Channel age does not predict channel size:** older channels do not necessarily have more subscribers or total views.
+- **2,125 videos / 15 channels / 3 categories**: 5 Korean channels in each of Fashion, Mukbang, and Travel, up to 200 recent videos collected per channel. 2,125 is the number of videos left in the upload-cadence analysis, per channel, after keeping upload gaps of 1–30 days and removing view outliers (1.5×IQR).
+- **Daily uploading was optimal for only 3 of 15 channels.** The upload interval with the highest average views is channel-specific, ranging from 1 day up to 8–14 days — there is no universal "best cadence" in this sample.
+- **For 10 of 15 channels, one upload interval had the highest average for both views and likes**; for the other 5, the best interval for likes differs from the one for views.
+- **Likes rise with views in all 18 per-channel and per-category scatter panels.** Comments are about an order of magnitude smaller and share the same axis, so the figure cannot rank the two by correlation strength; no real-data correlation coefficient was computed.
+- **Channel age shows no visible link to channel size** in this sample of 15 channels: older channels do not necessarily have more subscribers or total views (scatterplot only, no statistical test).
+- **These are descriptive comparisons**, not tested effects: there is no baseline model and no significance test, and an upload-interval bucket counts with as few as 2 videos.
 
 ![Correlation analysis: views vs likes and views vs comments per channel](visualizations/04_correlation/correlation_analysis.png)
 
@@ -85,14 +86,17 @@ Youtube Channel Analysis Project/
 └── README.md
 ```
 
-Two layers do the same analysis in different forms:
+Two layers cover the same eight questions:
 
 - **`notebooks/`** — the original analysis, executed against the real CSVs; its cell outputs
   (per-channel results, tables, figures) are preserved in the notebook and exported to
-  `visualizations/`.
-- **`analysis/`** — the same eight analyses refactored into standalone, importable scripts
+  `visualizations/`. Every finding below comes from this layer.
+- **`analysis/`** — the eight analyses refactored into standalone, importable scripts
   sharing one preprocessing module, runnable on any dataset with the expected schema
-  (falls back to the sample generator otherwise).
+  (falls back to the sample generator otherwise). The scripts differ from the notebook
+  in places: they add 99th-percentile trims (analyses 05, 06, 07), quartile bands
+  (analysis 07) and Pearson coefficients (analysis 04), and they take one subscriber
+  value per channel in analysis 08. Their output on the real data was never recorded.
 
 DataFrame columns are Korean, matching the source data: `카테고리` (category), `채널명`
 (channel), `제목` (title), `조회수` (views), `좋아요 수` (likes), `댓글 수` (comments),
@@ -119,22 +123,29 @@ channels performed best with daily uploads; several top travel and mukbang chann
 peaked at 8–14 day intervals. The full per-channel table is in
 [docs/DETAILS.md](docs/DETAILS.md).
 
-**Likes are the more consistent engagement metric.** In all 18 scatter panels (15
-channels + 3 category aggregates), likes rise almost linearly with views, while comments
-stay flat and noisy. If you can only monitor one engagement signal against views, use likes.
+**Likes rise with views in every panel.** In all 18 scatter panels (15 channels + 3
+category aggregates), likes rise almost linearly with views. Comments look flat, but they
+are about ten times smaller and are drawn on the same axis, so the figure does not show
+that comments correlate less with views. Measuring that needs the per-signal correlation
+(`analysis/04_correlation_analysis.py`), which was not run on the real data.
 
-**Channel age is a weak predictor of scale.** Comparing creation dates against total
-subscribers and views shows older channels do not systematically dominate — recent,
-consistent channels can match or beat channels years older.
+**Channel age shows no visible link to scale.** Plotting creation dates against total
+subscribers and views for the 15 channels shows older channels do not systematically
+dominate. With 15 points and no test, this is an observation about these channels, not a
+general result.
 
-**Expectation shortfalls are normal.** Comparing each video against its channel baseline
-(total views ÷ total videos, and a recent-200-videos baseline), a substantial share of
-videos in every category miss their expected view count — under-performance relative to
-channel average is routine, not exceptional.
+**Most videos fall below their channel's average.** Comparing each video against its
+channel baseline (total views ÷ total videos, and a recent-200-videos baseline), most
+videos in every category miss the expected view count. Part of this is built into the
+baseline: views are right-skewed, so a mean pulled up by a few hits sits above most
+videos. A median baseline would separate real under-performance from that effect; it was
+not computed.
 
-**Subscriber count alone misleads.** Total-views-to-subscriber ratios vary widely between
-channels in the same category, so subscriber count without an efficiency ratio is a poor
-proxy for actual audience engagement.
+**Subscriber ratio: no finding reported.** In the real-data run, the Mukbang and Travel
+panels sum the subscriber count over every video row (`'sum'` in the notebook's
+subscriber-ratio cells) instead of taking one value per channel; only the second Fashion
+pass uses `'max'`. The ratios for those two categories are therefore not per-channel
+views-per-subscriber, and no cross-channel conclusion is drawn from them.
 
 ## Methodology Summary
 
@@ -142,12 +153,16 @@ proxy for actual audience engagement.
   videos per channel; video metadata (views, likes, comments, duration, upload datetime)
   plus channel metadata (subscribers, creation date, total views).
 - **Preprocessing:** comma-formatted numbers coerced to integers, upload datetimes parsed
-  with day-of-week / hour extraction, Shorts (≤ 60s) removed, rows with unparseable dates
-  dropped.
-- **Outlier handling:** 1.5×IQR filter on views for the cadence analysis; 99th-percentile
-  trims in the duration, channel-age, and expected-views analyses.
-- **Statistics:** groupby aggregations, day×hour pivot heatmaps, Pearson correlation
-  (views–likes, views–comments), quartile-based expected-view bands.
+  with day-of-week / hour extraction, rows with unparseable dates dropped. Shorts are
+  removed only in the duration analysis (> 60 s) and the expected-views analysis (≥ 70 s).
+  The shared preprocessing cell also tries to drop Shorts, but it looks for a column name
+  the data does not have and prints a warning instead, so the timing, cadence and
+  correlation analyses include Shorts.
+- **Outlier handling:** 1.5×IQR filter on views, per channel, for the cadence analysis.
+  The scripts add 99th-percentile trims in the duration, channel-age, and expected-views
+  analyses; the notebook run did not use them.
+- **Statistics:** groupby aggregations, day×hour pivot heatmaps, scatterplots, and
+  mean-based expected-view baselines. No significance tests.
 - **Visualization:** matplotlib + seaborn with Korean font handling (Malgun Gothic);
   bilingual Korean/English labels.
 
@@ -162,6 +177,17 @@ Full per-analysis methodology and the per-channel results table:
   coefficients are computed by `analysis/04_correlation_analysis.py` only when a dataset
   is supplied (the original notebook run did not print them).
 - `load_from_youtube_api()` is a stub; data re-collection is not turnkey.
+- No baseline or significance test: "best interval" means the bucket with the highest
+  average, and a bucket needs only 2 videos to count. The cadence results are
+  descriptive.
+- The notebook cells were run out of order (execution counts are not sequential), and
+  the shared Shorts filter did not fire (see Methodology), so Shorts are inside the 2,125
+  cadence videos.
+- The subscriber-ratio cells for Mukbang and Travel sum subscribers over video rows
+  (see Key Findings); the script version (`analysis/08_subscriber_ratio_analysis.py`)
+  takes one value per channel but has not been run on the real data.
+- The 5 channels per category were chosen before this analysis; the selection rule is
+  not recorded in the repository.
 
 ## Tech Stack
 
